@@ -12,7 +12,7 @@ To start coding in R, we only need to open RStudio because it automatically run 
 
 ## Lesson 1 - Basic Coding Syntax and Structure in R
 - Basic Mathematical Operations
-- Variable Assignment
+- Variable
 - Data Types
 - Factor Vector
 - R Basic Functions
