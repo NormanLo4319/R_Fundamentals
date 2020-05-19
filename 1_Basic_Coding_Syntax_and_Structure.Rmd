@@ -1,0 +1,107 @@
+---
+title: "Basic Coding Syntax and Structure in R"
+author: "Norman Lo"
+date: "5/19/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1.1 - Basic Mathematical Operations
+
+As a programming language, R is built for basic mathematical operations.  We begin our exploration of R from these simple operations.  
+
+|  Arithmetic Operators  |  Operations  |  Examples  |
+|  :---:  |  :---:  |  :---:  |
+|  +  |  Addition  |  15 + 5 = 20  |
+|  -  |  Subtraction  |  15 - 5 = 10  |
+|  *  |  Multiplication  |  15 * 5 = 75  |
+|  /  |  Division  |  15 / 5 = 3  |
+|  %/%  |  Integer Division  |  16%/% 3 = 5  |
+|  ^  |  Exponent  |  15 ^ 3 = 3375  |
+|  %%  |  Modulus  |  15 %% 5 = 0, 17%% 4 = 1  |
+
+Here are some coding examples:
+
+```{r Mathematical Operations 1}
+# Addition
+1 + 1 + 10
+
+# Subtraction
+10 - 5 - 1
+
+# Multipication
+3 * 2 * 4
+
+# Division
+10 / 5
+
+# Exponent, returns the power of one variable against the other
+2^4
+
+# Modulus, returns the remainder after the division
+17%%4
+
+```
+
+The above examples demonstrates the simple mathematical operations in R. It is worth to note that R is similar to other programming language, which follows the **order of operation**.  Here are some examples to demonstrate:
+
+``` {r Mathematical Operations 2}
+# Multiplication before addition
+5 + 6 * 4
+
+# Parenthese always goes first
+(5 + 6) * 4
+
+# Mixed with the parenthese with other operators
+5 + 6 * (4 - 2)
+
+```
+
+Note: we have been using white space to separate the operators with the numbers in the previou examples, but it is not necessarily to leave a whitespace in coding.  However, it would be a good practice to improve the readability in your code.
+
+## 1.2 - Variable Assignment
+
+
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+
+
+
+## 1.3 - Data Types
+
+
+
+
+
+
+## 1.4 - Factor Vector
+
+
+
+
+## 1.5 - R Basic Functions
+
+
+
+
+## 1.6 - Missing Values
+
+
+
+
+## 1.7 - Pipe
+
+
+
+
+
+
+
+
+
