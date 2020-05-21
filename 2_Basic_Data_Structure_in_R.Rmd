@@ -1,0 +1,121 @@
+---
+title: "Basic Data Structure in R"
+author: "Norman Lo"
+date: "5/21/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 2.1 - data.frame
+
+```{r data.frame 1}
+# Create 3 vectors x, y, and q
+x <- 1:10
+y <- -4:5
+q <- c("Hockey", "Football", "Baseball", "Curling", "Rugby",
+       "Lacrosse", "Basketball", "Tennis", "Cricket", "Soccer")
+
+# Create a data frame using data.frame()
+theDF <- data.frame(x, y, q)
+theDF
+
+# We can check the class of a data frame object using class()
+class(theDF)
+```
+
+
+
+```{r data.frame 2, x=x, y=y, q=q}
+# Assign column names to the data frame
+theDF <- data.frame(First=x, Second=y, Sport=q)
+theDF
+```
+
+
+
+```{r data.frame 3, theDF=theDF}
+# Number of row
+nrow(theDF)
+
+# Number of column
+ncol(theDF)
+
+# Dimension of the data frame
+dim(theDF)
+```
+
+
+
+```{r data.frame 4, theDF=theDF}
+# Check the column names of the data frame
+names(theDF)
+
+# Check only the third column name by indexing
+names(theDF)[3]
+
+# Check the row names (index)
+rownames(theDF)
+
+# Changing the row names
+rownames(theDF) <- c("one", "two", "three", "four", "five",
+                     "six", "seven", "eight", "nine", "ten")
+rownames(theDF)
+
+# Reset row names back to index
+rownames(theDF) <- NULL
+rownames(theDF)
+```
+
+
+
+```{r data.frame 5, theDF=theDF}
+# View only the first six rows of the data frame (default)
+head(theDF)
+
+# View the first seven rows of the data frame (n=7)
+head(theDF, n=7)
+
+# View the last six rows of the data frame (default)
+tail(theDF)
+```
+
+
+
+
+
+```{r data.frame 6, theDF=theDF}
+
+
+
+```
+
+
+
+```{r data.frame 7, theDF=theDF}
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 2.2 - List
+
+
+## 2.3 - Matrix
+
+
+## 2.4 - Array
