@@ -8,8 +8,15 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+## General Data Structure in R
+
+In the previous section, we have mentioned about the most common data structure in R, "vector". However, in many cases, data needs to be stored in a higher dimension data structure. In R, several data structures are offered to satisfy our need to manage different data sources.  In this section, we are going to cover the most popular data structures in R, which includes data.frame, matrix, list, and array.
 
 ## 2.1 - data.frame
+
+**data.frame** is a two dimensional data structure in R. It is a special case of a vector which has each component of equal length. Each component form the column and contents of hte component form the rows. Generally speaking, data.frame is similar to Excel spreadsheet.
+
+There are many data.frame methods in R, but the simplest way to create a data.frame is to use data.frame() function. Let's create a simple data.frame with with columns x, y, and q, which came from three individual vectors.
 
 ```{r data.frame 1}
 # Create 3 vectors x, y, and q
@@ -26,7 +33,7 @@ theDF
 class(theDF)
 ```
 
-
+In this example, we created a data.frame with three individual vectors and the dimension of the data.frame is 10x3. As noticed, "theDF" in the example is a variable assigned with the data.frame. data.frame also allows us to define the column names, so it can be easily read. In the following example, we are assigning the name of the columns to each vector pass into the data.frame() function.
 
 ```{r data.frame 2, x=x, y=y, q=q}
 # Assign column names to the data frame
@@ -34,7 +41,11 @@ theDF <- data.frame(First=x, Second=y, Sport=q)
 theDF
 ```
 
+data.frame is a complex object with many different **attributes**. The most popular attributes are number of rows, number of columns, and dimenion of the data.frame. R offers the functions to check these attributes at ease.
 
+nrow() - check the number of rows of the data.frame
+ncol() - check the number of columns of the data.frame
+dim() - check the dimension (row x column) of hte data.frame.
 
 ```{r data.frame 3, theDF=theDF}
 # Number of row
@@ -47,7 +58,7 @@ ncol(theDF)
 dim(theDF)
 ```
 
-
+We can also check the name of each column using the names() function, which will return a vector of character. We can also check the name of a specific column by index and assign new names to the columns after it's created. Here are some examples:
 
 ```{r data.frame 4, theDF=theDF}
 # Check the column names of the data frame
@@ -69,7 +80,7 @@ rownames(theDF) <- NULL
 rownames(theDF)
 ```
 
-
+When a data.frame is so big or contains many rows, we may only want to print the first few rows to check the data within. In this case, we can use head() function to check the first 6 rows of the data. tail() function, on the other hand, returns the last 6 rows of the data in the data.frame.
 
 ```{r data.frame 5, theDF=theDF}
 # View only the first six rows of the data frame (default)
@@ -82,21 +93,145 @@ head(theDF, n=7)
 tail(theDF)
 ```
 
-
-
-
+If you want to check the type of data structure, you can use the class() function.
 
 ```{r data.frame 6, theDF=theDF}
-
-
+# Check the type of the data structure
+class(theDF)
 
 ```
 
 
 
 ```{r data.frame 7, theDF=theDF}
+# Extracting a column of elements from the data frame using $
+theDF$Sport
+
+# Extracting an element from the third row and second column using [ ]
+theDF[3, 2]
+
+# Extracting the elements from the third row and second to third columns 
+theDF[3, 2:3]  # Note that the return data frame has column names
+
+# Extracting the elements from the third and fifth rows and second column
+theDF[c(3,5), 2]  # Note that the return vector does not have name title
+
+# Extracting the elments from the third and fifth rows and second to third columns
+theDF[c(3,5), 2:3]  # Note that the return data frame has column names
+
+# Extracting all the elements from the third column
+theDF[ , 3]  # Note the return vector does not have name title
+
+# Extracting all the elements from second to third columns
+theDF[ , 2:3]  # Note the return data frame has column names
+
+# Extracting all the elements in the second row
+theDF[2, ]  # Note the return data frame has column names
+
+# Extracting all the elements in the second to fourth rows
+theDF[2:4, ]
+
+# Extracting all the elements in columns "First" and "Sport"
+theDF[ , c("First", "Sport")]
+
+```
+
+It's often confusing for people to use different methods to extract data from the data.frame. For instance, we can use df[, "column name"], df["column name"], and df[["column name"]] to extract a column of elements, but most people don't realize the difference between these methods.  Here are some examples to demontrate:
+
+``` {r data.frame 8, theDF=theDF}
+# Extract only "Sport" column with df[ , "column name"] method
+theDF[ , "Sport"]
+
+# Check the class of the method
+class(theDF[ , "Sport"])  # return factor object, categorical data
+
+# Extract only "Sport" column with df["column name"] method
+theDF["Sport"]
+
+# Check the class of the method
+class(theDF["Sport"])  # return data.frame object
+
+# Extract only "Sport" column with df[["column name"]] method
+theDF[["Sport"]]
+
+# Check the class of the method
+class(theDF[["Sport"]])  # return factor object, categorical data
+```
+
+As observed in the previous examples, different methods return different R objects. In fact, when we are using the df[ , "column name"] method, we can pass in a third argument: drop=FALSE, so the return object is a data.frame.
+
+``` {r data.frame 9, theDF=theDF}
+# Extract only "Sport" column applying drop=FALSE argument
+theDF[ , "Sport", drop=FALSE]
+
+# Check the class of the method
+class(theDF[ , "Sport", drop=FALSE])  # return data.frame object
+
+# Extract only the thrid column applying drop=FALSE argument
+theDF[ , 3, drop=FALSE]
+
+# Check the class of the method
+class(theDF[ , 3, drop=FALSE])  # return data.frame object
+```
+
+Note: Many people first learning a statistical software like R do not pay attention to the type of data structure in different analysis packages.  Indeed, it's especially important and essential to understand what is required to pass into a function in R.
+
+As described in the previous section, factor is a special data structure that each unique category (string) in the data is defined into levels. R has an easy way to transform a factor into a data.frame format using model.matrix() function. The function returns columns of dummy variables with value 0 and 1 that indicates the level in the factor.
+
+``` {r data.frame 10}
+# Create a new factor
+newFactor <- factor(c("Pennsylvania", "New York", "New Jersey", "New York",
+                      "Tennessee", "Massachusetts", "Pennsylvania", "New York"))
+
+# Create a data.frame based on the factor newFactor
+model.matrix(~newFactor - 1)
+```
+
+## 2.2 - List
 
 
+
+``` {r List 1, theDF=theDF}
+# Create a list with three elements
+list("a", "b", "c")
+
+# Create a list with a single element, which is a vector
+list(c("a", "b", "c"))
+
+# Create a list with two vector elements
+(list3 <- list(c("a", "b", "c"), 3:7))
+
+# Create a list with two elements, a data.frame and vector
+list(theDF, 1:10)
+
+# Create a list with three elements, a data.frame, vector, and list of two vectors
+list5 <- list(theDF, 1:10, list3)
+list5
+```
+
+
+
+``` {r List 2, theDF=theDF, list3=list3, list5=list5}
+# Check the name of each element in list5
+names(list5)
+
+# Assign name to each element in list5
+names(list5) <- c("data.frame", "vector", "list")
+
+# Check the name of each element in list5 again
+names(list5)
+
+# Print the list with the newly assigned names
+list5
+
+# We can also assign name to each element when creating the list
+list6 <- list(TheDataFrame = theDF, TheVector = 1:10, TheList = list3)
+
+# Check the name of each element in list6
+names(list6)
+
+# Print the list with assigned names
+list6
 ```
 
 
@@ -105,14 +240,6 @@ tail(theDF)
 
 
 
-
-
-
-
-
-
-
-## 2.2 - List
 
 
 ## 2.3 - Matrix
