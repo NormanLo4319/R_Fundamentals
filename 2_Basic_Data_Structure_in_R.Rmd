@@ -232,14 +232,47 @@ names(list6)
 
 # Print the list with assigned names
 list6
+
+# Create an empty list with 4 empty spaces
+(emptyList <- vector(mode="list", length=4))
 ```
 
 
 
 
+``` {r List 3, list5=list5}
+# Extracting an element from a list using index
+list5[[1]]
 
+# Extracting an element form a list using the element's name
+list5[["data.frame"]]
 
+# Extracting an element from an element in a list using nested indexing
+list5[[1]]$Sport
 
+# Extracting an element from an element in a list using nested indexing
+list5[[1]][ , "Second"]
+
+# Extracting an element from an element in a list using nested indexing and return a data.frame object
+list5[[1]][ , "Second", drop=FALSE]
+
+# Check the length of a list
+length(list5)
+
+# Add the 4th element to a list without a name
+list5[[4]] <- 2
+length(list5)
+
+# Add the 5th element to a list with an assigned name
+list5[[5]] <- 3:6
+length(list5)
+
+# Check the name of each element in a list
+names(list5)
+
+# Print all elements in a list
+list5
+```
 
 
 ## 2.3 - Matrix
