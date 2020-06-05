@@ -278,4 +278,107 @@ list5
 ## 2.3 - Matrix
 
 
+``` {r Matrix 1}
+# Create a 5x2 matrix with elements 1 to 10
+A <- matrix(1:10, nrow=5)
+A
+
+# Create a 5x2 matrix with elements 21 to 30
+B <- matrix(21:30, nrow=5)
+B
+
+# Create a 2x10 matrix with elements 21 to 40
+C <- matrix(21:40, nrow=2)
+C
+
+# Check the row attribute of Matrix A
+nrow(A)
+
+# Check the column attribute of Matrix A
+ncol(A)
+
+# Check the dimension of Matrix A
+dim(A)
+
+# Adding Matrix A and B (must be the same dimension)
+A + B
+
+# Multiplying Matrix A and B (not matrix multiplication)
+A * B
+
+# Check if the elements are the same in two matrices
+A == B
+```
+
+
+
+``` {r Matrix 2, A=A, B=B}
+# Transpose Matrix B for matrix multiplication
+A %*% t(B)
+```
+
+
+
+``` {r Matrix 3, A=A, B=B, C=C}
+# Check column names of Matrix A
+colnames(A)
+
+# Check row names of Matrix A
+rownames(A)
+
+# Assign column and row names to Matrix A
+colnames(A) <- c("Left", "Right")
+rownames(A) <- c("1st", "2nd", "3rd", "4th", "5th")
+
+# Check the assigned column and row names of Matrix A
+colnames(A)
+rownames(A)
+
+# Assign column and row names to Matrix B
+colnames(B) <- c("First", "Second")
+rownames(B) <- c("One", "Two", "Three", "Four", "Five")
+
+# Check the assigned column and row names of Matrix B
+colnames(B)
+rownames(B)
+
+# Assign column and row names to Matrix C
+colnames(C) <- 1:10
+rownames(C) <- c("Top", "Bottom")
+
+# Check the assigned column and row names of Matrix C
+colnames(C)
+rownames(C)
+```
+
+
+
+``` {r Matrix 4, A=A, B=B, C=C}
+# Transpose Matrix A
+t(A)
+
+# Matrix multiplication for Matrix A and C
+A %*% C
+```
+
+
+
+
 ## 2.4 - Array
+
+
+``` {r Array 1}
+# Create a array with 2 two dimensional vectors
+theArray <- array(1:12, dim=c(2, 3, 2))
+theArray
+
+# Extract the first row from each vector element by index
+theArray[1, , ]
+
+# Extract the first row from the first vector element by index
+theArray[1, , 1]
+
+# Extract the first vector by index
+theArray[ , , 1]
+```
+
