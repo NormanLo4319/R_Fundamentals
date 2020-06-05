@@ -189,7 +189,7 @@ model.matrix(~newFactor - 1)
 
 ## 2.2 - List
 
-
+When we are trying to have a collection of different data objects, we can use the **list** data structure to collect them. List can store any type or length of data object, such as numeric, character, mixed of numeric and character data, data.frame, or a list.
 
 ``` {r List 1, theDF=theDF}
 # Create a list with three elements
@@ -209,7 +209,9 @@ list5 <- list(theDF, 1:10, list3)
 list5
 ```
 
+Note: As you may noticed in the above examples, when we are assigning a list of elements to list3 inside the parentheses, not only it create the list3 variable, but it also display the contents assigned to the variable.
 
+Similar to data.frame, we can also assign name to each of the element in a list and the names can be check by names() function.
 
 ``` {r List 2, theDF=theDF, list3=list3, list5=list5}
 # Check the name of each element in list5
@@ -237,8 +239,7 @@ list6
 (emptyList <- vector(mode="list", length=4))
 ```
 
-
-
+To extract a single element from a list, we can use double square brackets with the element's index or name. For more complex extraction, such as list within a list or an element within a data.frame or vector, we can extract the data by **nested indexing**. Furthermore, we can also add new element to a list by assigning it to a new index or name.
 
 ``` {r List 3, list5=list5}
 # Extracting an element from a list using index
@@ -274,9 +275,11 @@ names(list5)
 list5
 ```
 
+Note: In most cases, adding new element to a list is not going to create efficient problem. However, as a list expands, especially with data.frame or list, it would increase the computational complexity. Therefore, it's suggested to set the length of the list at the beginning and fill it with the proper index.
 
 ## 2.3 - Matrix
 
+**Matrix** is an important mathematical structure in statistical computation. It's similar to data.frame, which represents a collection of numbers arranged in an order of rows and columns. The only different is that matrix requires all elements to be the same data type, which is usually numeric. Same as vector, matrix calculation is based on vectorized computation. The data.frame attributes, such as nrow(), ncol(), and dim(), also apply to matrix. Here are some examples to demonstrate:
 
 ``` {r Matrix 1}
 # Create a 5x2 matrix with elements 1 to 10
@@ -310,14 +313,14 @@ A * B
 A == B
 ```
 
-
+**Matrix Multiplication** is often used in mathematical operations. The requirment for matrix multiplication is that the number of rows of the first matrix needs to match with the number of columns of the second matrix. To demonstrate, we transpose matrix B in the following example and multiple the two matrices.
 
 ``` {r Matrix 2, A=A, B=B}
 # Transpose Matrix B for matrix multiplication
 A %*% t(B)
 ```
 
-
+Similar to data.frame, matrix can also assign the names to the rows and columns.
 
 ``` {r Matrix 3, A=A, B=B, C=C}
 # Check column names of Matrix A
@@ -343,7 +346,7 @@ colnames(B)
 rownames(B)
 
 # Assign column and row names to Matrix C
-colnames(C) <- 1:10
+colnames(C) <- LETTERS[1:10]
 rownames(C) <- c("Top", "Bottom")
 
 # Check the assigned column and row names of Matrix C
@@ -351,7 +354,9 @@ colnames(C)
 rownames(C)
 ```
 
+R has two special vectors called "letters" and "LETTERS". They are used to create vector of lowercase letters and uppercase letters. In the previous example, LETTER[1:10] represents a vector of uppercase letters A~J.
 
+When we are tranposing a matrix with assigned row and column names, the names will be transposed to match with the data. 
 
 ``` {r Matrix 4, A=A, B=B, C=C}
 # Transpose Matrix A
@@ -361,11 +366,9 @@ t(A)
 A %*% C
 ```
 
-
-
-
 ## 2.4 - Array
 
+**Array** is the R data object that can store data in more than two dimensions. Array can store only the same data type. An array is created using the array() function in R. Similar to a vector, we can use the square brackets to extract elements from an array. The first arugment refers to the row of each element, the second argument refers to the column of each element, and finally the thrid argument refers to the index of the element. Here is an example to demonstrate:
 
 ``` {r Array 1}
 # Create a array with 2 two dimensional vectors
@@ -382,3 +385,6 @@ theArray[1, , 1]
 theArray[ , , 1]
 ```
 
+### Summary:
+
+Most people do not realize the importance of the data type they are dealing with in their project. In fact, it could be frustrating when you are trying to debug some the errors with different statistical package in R. Most of the time, the errors are related to the type of data required in those packages. Therefore, it's very important to learn all the different data structures in R before using different statistical packages.
