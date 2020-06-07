@@ -1,0 +1,62 @@
+---
+title: "Reading Data into R"
+author: "Norman Lo"
+date: "6/5/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Reading Different Data Source into R
+
+
+
+
+#### 3.1 - Reading CSV File
+
+
+```{r CSV 1}
+
+
+
+```
+
+#### Reading Excel File
+
+
+
+```{r Excel}
+
+```
+
+#### Connecting to Database
+
+
+``` {r Database}
+
+
+```
+
+
+#### Reading Data from other Software Formats
+
+``` {r Others}
+
+
+```
+
+
+#### Reading RData File
+
+``` {r RData}
+
+```
+
+
+#### Loading the Built-In Data
+
+``` {r Built-In Data}
+
+```
