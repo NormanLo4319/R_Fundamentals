@@ -11,33 +11,143 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Reading Different Data Source into R
 
-
-
+We have covered the basic features of R in the first two sections. In this section, we would like to explore how to read data from different data source into R for analysis. R offers several methods to read data from different sources, the most common one is reading from CSV (comma separated values) file and the basic excel file format. R also has the capability to read from relational database, internet data, and computer science data format "JSON". 
 
 #### 3.1 - Reading CSV File
 
+The best way to read a CSV file to R is using read.table() function. Many people starts with read.csv() function, but it's actually a wrapper function from read.table(), which is the same as using the **sep** arugment with a comma (",") in read.table() function. read.table() function returns a R data.frame object. 
 
-```{r CSV 1}
+The way to use read.table() function is to put the **absolute path** to the CSV file in the first argument. The path could be the location to the file in the machine or it could be a file from the internet. We are going to demonstrate to read a CSV file from the URL in this exercise.
 
+``` {r CSV1}
+# Assign the URL to a variable
+theUrl <- "http://www.jaredlander.com/data/TomatoFirst.csv"
 
+# Read the CSV file from the URL to R
+tomato <- read.table(file=theUrl, header=TRUE, sep=",")
 
+# Check the data.frame object
+head(tomato)
 ```
 
-#### Reading Excel File
 
 
+``` {r CSV2}
+# Create three individual vectors
+x <- 10:1
+y <- -4:5
+q <- c("Hockey", "Football", "Baseball", "Curling", "Rugby",
+       "Lacrosse", "Basketball", "Tennis", "Cricket", "Soccer")
 
-```{r Excel}
+# Create data.frame by using the three vectors
+theDF <- data.frame(First=x, Second=y, Sport=q, stringsAsFactors=FALSE)
 
+# Check the Sport column
+theDF$Sport
 ```
 
-#### Connecting to Database
 
 
-``` {r Database}
 
+``` {r CSV3}
+# Loading readr package
+library(readr)
 
+# Assign URL to a variable
+theUrl <- "http://www.jaredlander.come/data/TomatoFirst.csv"
+
+# Loading the CSV to R and create a tibble object
+tomato2 <- read_delim(file=theUrl, delim=", ")
+tomato2
 ```
+
+
+
+``` {r CSV4}
+# Loading data.table package
+library(data.table)
+
+# Assign URL to a variable
+theUrl <- "http://www.jaredlander.com/data/TomatoFirst.csv"
+
+# Loading the CSV to R and create a data.table object
+tomato3 <- fread(input=theUrl, sep=', ', header=TRUE)
+head(tomato3)
+```
+
+
+
+
+
+#### 3.2 - Loading Excel Files
+
+
+``` {r Excel1}
+# Downlaoding an excel file from the internet
+download.file(url='http://www.jaredlander.com/data/ExcelExample.xlsx',
+              destfile='data/ExcelExample.xlsx', mode='wb')
+
+# Loading readxl package
+library(readxl)
+
+# Loading the first sheet in the xlsx file from the data folder
+excel_sheets('data/ExcelExample.xlsx')
+
+# Create a tibble object and assign to a variable
+tomatoXL <- read_excel('data/ExcelExample.xlsx')
+tomatoXL
+```
+
+
+
+``` {r Excel2}
+# Loading the second sheet in the xlse file from the data folder
+wineXL1 <- read_excel('data/ExcelExample.xlsx', sheet=2)
+head(wineXL1)
+
+# Loading the second sheet in the xlse file by sheet name
+wineXL2 <- read_excel('data/ExcelExample.xlsx', sheet='Wine')
+head(winXL2)
+```
+
+
+
+
+#### 3.3 - Connecting to Database
+
+
+
+``` {r Database1}
+# Downloading database file
+download.file("http://www.jaredlander.com/data/diamonds.db",
+              destfile="data/diamonds", mode="wb")
+
+# Loading RSQLite package
+library(RSQLite)
+
+# Creating a database driver
+drv <- dbDriver('SQLite')
+class(drv)
+
+# Build connection to database
+con <- dbConnect(drv, 'data/diamonds.db')
+class(con)
+
+# Extracting table names from the database
+dbListTable(con)
+
+# Extracting field (column) names from diamond table
+dbListFields(con, name='diamonds')
+
+# Extracting field (column) names from DiamondColors table
+dbListFields(con, name='DiamondColors')
+```
+
+
+
+
+
+
 
 
 #### Reading Data from other Software Formats
