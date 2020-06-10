@@ -30,7 +30,9 @@ tomato <- read.table(file=theUrl, header=TRUE, sep=",")
 head(tomato)
 ```
 
+In this example, we use the three arguments file, header, and sep from the read.table() function to load the CSV file to R, which returns a data.frame object. Note that the argument names (file, header, and sep) are optional and can be missing in the function, such that read.table(theUrl, TRUE, ","), but it's a good habit to include the argument names for readability. The second argument "header=TRUE" reads the first row of the CSV file as the column names. The third argument 'sep=","' defines the data is separated by commas. We can also separate the data by different notations, such as "\t" (tab), ";" (semi-colon), etc, for different data formats.
 
+In some cases, we may want to use "stringAsFactors=FALSE" argument to avoid a string column automatically read as factor. It saves the computational time when reading a large character data set. "stringAsFactor" can also be used in data.frame, here is an example to demonstrate.
 
 ``` {r CSV2}
 # Create three individual vectors
@@ -46,8 +48,7 @@ theDF <- data.frame(First=x, Second=y, Sport=q, stringsAsFactors=FALSE)
 theDF$Sport
 ```
 
-
-
+When reading a large CSV file, read.table() function is relatively slow compares to other packages. For instance, we can use the read_delim() and data.table() from the **readr** package. The two functions are relatively quick and won't automatically transfrom character data to factor data type. 
 
 ``` {r CSV3}
 # Loading readr package
@@ -61,7 +62,9 @@ tomato2 <- read_delim(file=theUrl, delim=", ")
 tomato2
 ```
 
+Similar to read.table(), the first argument of the read_delim() function is the path to the CSV file. The second argument col_names is default to be TRUE and the third argument delim=", " reads the data separated by commas. Note that read_delim() function or other data reading functions from readr package return a tibble object, which is a modern reimagining of the data.frame. In the readr package, read_csv, read_csv2, and read_tsv functions are the special cases, which separate the data by comma (, ), semi-colon (;), and tab (\t).
 
+An alternative would be fread() function from data.table package. Similar to the previous data reading function, the first argument is the path or URL to the CSV file. The second argument sep=', ' represents the data separated by comma. The third argument header=TRUE reads the first row as the column names. This function also has the stringsAsFactor arugment, which is default to be FALSE.
 
 ``` {r CSV4}
 # Loading data.table package
@@ -75,9 +78,7 @@ tomato3 <- fread(input=theUrl, sep=', ', header=TRUE)
 head(tomato3)
 ```
 
-
-
-
+Genearlly speaking, both read_delim() and fread() are efficient functions for loading CSV file into R. The choice depends on the package (dplyr or data.table) that you are more fimilar to work with. 
 
 #### 3.2 - Loading Excel Files
 
