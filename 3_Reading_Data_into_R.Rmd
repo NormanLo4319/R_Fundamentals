@@ -82,6 +82,7 @@ Genearlly speaking, both read_delim() and fread() are efficient functions for lo
 
 #### 3.2 - Loading Excel Files
 
+Excel is the most popular data analytic tools, which is simple, powerful, and easy to learn. In many documentation from the R community, it was suggested to transform excel file to CSV file and read it into R by read.csv() function. In the recent years, reading excel file into R is getting simplier, which we can use the **readxl** package developed by Hadley Wickham. The function we are going to use to read either .xls or .xlsx files is read_excel(). Unlike read.table(), read_delim(), and fread(), read_excel() cannot read file from internet source (URL). In this example, we use download.file() to download the excel file from the internet source, then use read_excel() reading the data into R.
 
 ``` {r Excel1}
 # Downlaoding an excel file from the internet
@@ -99,7 +100,9 @@ tomatoXL <- read_excel('data/ExcelExample.xlsx')
 tomatoXL
 ```
 
+Note: read_excel() is default to read the first sheet in the excel file, which is the "tomato" sheet in our example. The return object is a tibble, not data.frame object.
 
+If we want to read the second sheet from the excel file into R, we can put in the argument "sheet=2" or "sheet='Wine'" to read a specific sheet from the file. Here are two examples:
 
 ``` {r Excel2}
 # Loading the second sheet in the xlse file from the data folder
@@ -111,12 +114,12 @@ wineXL2 <- read_excel('data/ExcelExample.xlsx', sheet='Wine')
 head(winXL2)
 ```
 
-
-
-
 #### 3.3 - Connecting to Database
 
+In practice, most of the company data is stored into the database. Most of these database, such as PostgreSQL, MySQL, Microsoft SQL server, or Microsoft Access, can be connected using different program. A common way to connect to a database is using ODBC connection. Two of the most popular open source packages for database connection are RPostgreSQL and RMySQL. Building a connection to different database is not an easy task, which DBI package aims to 
+construct a standardized connection structure to achieve the task.
 
+In this section, we only demonstrate building a connect to a simple database SQLite. The example illustrates the steps that also apply to most of the database connection cases. First, we download a database file from the internet source. Then, we import the RSQLite package for building the connection to the SQLite database file.
 
 ``` {r Database1}
 # Downloading database file
@@ -125,15 +128,27 @@ download.file("http://www.jaredlander.com/data/diamonds.db",
 
 # Loading RSQLite package
 library(RSQLite)
+```
 
+To connect to the database, we need to first create a database driver and define the database type for activating the driver program.
+
+``` {r Database2}
 # Creating a database driver
 drv <- dbDriver('SQLite')
 class(drv)
+```
 
+Next, we connect to the database using dbConnect() function. The first argument is always the database driver and the second argument is usually DSN connection or direction path to the database file. Additional argument may be needed for other database structures, such as database user name, password, host, and port.
+
+``` {r Database3, drv=drv}
 # Build connection to database
 con <- dbConnect(drv, 'data/diamonds.db')
 class(con)
+```
 
+Once we build the connection to the database, we can use functions from the DBI package to extract information from the database, such as table names, field names, etc.
+
+``` {r Database4, con=con}
 # Extracting table names from the database
 dbListTable(con)
 
@@ -144,14 +159,43 @@ dbListFields(con, name='diamonds')
 dbListFields(con, name='DiamondColors')
 ```
 
+Now we can use dbGetQuery() function to perform query from the database. dbGetQuery() returns a data.frame object from the query. Since dbGetQuery() has the argument "stringAsFactors", it's suggested to set it to FALSE, so the character data can be extract as its original type.
+
+``` {r Database5, con=con}
+# Use SELECT * to query diamonds table from database
+diamondsTable <- dbGetQuery(con,
+                            "SELECT * FROM diamonds",
+                            stringsAsFactors=FALSE)
+head(diamondsTable)
+
+# Use SELECT * to query DiamondColors table from database
+colorTable <- dbGetQuery(con,
+                            "SELECT * FROM DiamondColors",
+                            stringsAsFactors=FALSE)
+head(colorTable)
+
+# Join the two tables
+longQuery <- "SELECT * FROM diamonds, diamondColors WHERE diamonds.color = DiamondColors.Color"
+diamondsJoin <- dbGetQuery(con, longQuery,
+                           stringsAsFactors=FALSE)
+head(diamondsJoin)
+```
+
+Even though ODBC connection will disconnect once R is closed or connecting to a different database using dbConnect(), it is recommended to build a good habit to manually close the ODBC connect with dbDisconnect() to avoid any complication or error.
+
+#### 3.4 - Reading Data from other Software Formats
 
 
 
+|  Function  |  Data Type  |
+|  :---:  |  :---:  |
+|  read.spss  |  SPSS  |
+|  read.dta |  Stata   |  
+|  read.ssd  |   SAS  | 
+|  read.octave  |  Octava  |  
+|  read.mtp  |   Minitab  |  
+|  read.systat  |  Systa  |  
 
-
-
-
-#### Reading Data from other Software Formats
 
 ``` {r Others}
 
@@ -159,14 +203,14 @@ dbListFields(con, name='DiamondColors')
 ```
 
 
-#### Reading RData File
+#### 3.5 - Reading RData File
 
 ``` {r RData}
 
 ```
 
 
-#### Loading the Built-In Data
+#### 3.6 - Loading the Built-In Data
 
 ``` {r Built-In Data}
 
