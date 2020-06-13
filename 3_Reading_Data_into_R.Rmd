@@ -80,7 +80,7 @@ head(tomato3)
 
 Genearlly speaking, both read_delim() and fread() are efficient functions for loading CSV file into R. The choice depends on the package (dplyr or data.table) that you are more fimilar to work with. 
 
-#### 3.2 - Loading Excel Files
+#### 3.2 - Reading Excel Files
 
 Excel is the most popular data analytic tools, which is simple, powerful, and easy to learn. In many documentation from the R community, it was suggested to transform excel file to CSV file and read it into R by read.csv() function. In the recent years, reading excel file into R is getting simplier, which we can use the **readxl** package developed by Hadley Wickham. The function we are going to use to read either .xls or .xlsx files is read_excel(). Unlike read.table(), read_delim(), and fread(), read_excel() cannot read file from internet source (URL). In this example, we use download.file() to download the excel file from the internet source, then use read_excel() reading the data into R.
 
@@ -185,7 +185,7 @@ Even though ODBC connection will disconnect once R is closed or connecting to a 
 
 #### 3.4 - Reading Data from other Software Formats
 
-
+Technically speaking, we don't need to worry much about data saved in other statistical package format once we adopted to R. In some cases, we may need to load data sources in different format, for instance, a project that you had worked on before or a project that was completed by other researchers or scentist in different software package. The **foreign** package in R offers several functions similar to read.table for reading data source saved with different software package format. Here is a list of these functions.
 
 |  Function  |  Data Type  |
 |  :---:  |  :---:  |
@@ -196,22 +196,183 @@ Even though ODBC connection will disconnect once R is closed or connecting to a 
 |  read.mtp  |   Minitab  |  
 |  read.systat  |  Systa  |  
 
+These functions return a data.frame object, which is similar to the R built-in function read.table().
 
-``` {r Others}
+Hadley Wickham developed a package, **haven**, which is similar to the **foreing** package, but significantly increase the computational time and efficiency. The return object is tibble. Here is a list for the functions in the **haven** package.
 
-
-```
-
+|  Function  |  Data Type  |
+|  :---:  |  :---:  |
+|  read_spss  |  SPSS  |
+|  read_sas |  SAS   |  
+|  read_stata  |   STATA  | 
 
 #### 3.5 - Reading RData File
 
-``` {r RData}
+``` {r RData1, tomato=tomato}
+# Save tomato data.frame to the local drive
+save(tomato, file="data/tomato.rdata")
 
+# Remove tomato from the global environment
+rm(tomato)
+
+# Check if tomato exists
+head(tomato)
+
+# Read the tomato data.frame from the local drive
+load("data/tomato.rdata")
+
+# Check if tomato exists
+head(tomato)
 ```
 
 
-#### 3.6 - Loading the Built-In Data
 
-``` {r Built-In Data}
+``` {r RData2}
+# Create two objects and store into a data.frame
+n <- 20
+r <- 1:10
+w <- data.frame(n, r)
 
+# Check these objects
+n
+r
+w
+
+# Save the objects to the local drive
+save(n, r, w, file="data/multiple.rdata")
+
+# Check if the objects are in memory
+n
+r
+w
+
+# Load the data from the local drive
+load("data/multiple.rdata")
+
+# Check the objects again
+n
+r
+w
 ```
+
+
+
+``` {r RData3}
+# Create a vector object
+smallVector <- c(1, 5, 4)
+smallVector
+
+# Save it to the local drive in RDS format
+saveRDS(smallVector, file="data/thisObject.rds")
+
+# Read the RDS file and assign to a new variable
+thatVect <- readRDS("data/thisObject.rds")
+thatVect
+
+# Check if the two variables are identical
+identical(samllVector, thatVect)
+```
+
+
+
+#### 3.6 - Reading R Built-In Data
+
+``` {r Built-In Data1}
+# Reading the built-in data set diamonds
+data(diamonds, package='ggplot2')
+
+# Check the data set
+head(diamonds)
+```
+
+
+
+
+#### 3.7 - Reading Data from the Internet
+
+
+
+``` {r HTML1}
+# Importing XML package
+library(XML)
+
+# Assign the URL link
+theURL <- "http://www.flag.com.tw/data/FT736_sample.html"
+
+# Reading the data from the URL
+bowlPool <- readHTMLTable(theURL, which=1, header=FALSE,
+                          stringsAsFactors=FALSE)
+
+# Print the return object
+bowlPool
+```
+
+
+
+
+``` {r HTML2}
+# Step 1:
+# Importing rvest package
+library(rvest)
+
+# Reading the data from the URL
+ribalta <- read_html('http://ww.jaredlander.com/data/ribalta.html')
+
+# Check the class of the return object
+class(ribalta)
+
+# Print the return object
+ribalta
+
+# Step 2:
+# Filtering the data from the HTML
+ribalta %>% html_nodes('ul') %>% html_nodes('span')
+
+# Step 3:
+# Find the class with element "street"
+ribalta %>% html_nodes('.street')
+
+# Step 4:
+# Extract the characters data within the span
+ribalta %>% html_nodes('.street') %>% html_text()
+
+# Step 5:
+# Find the attribute using its ID
+ribalta %>% html_nodes('#longitude') %>% html_attr('value')
+
+# Step 6:
+# Extract food items from the table 
+ribalta %>% html_nodes('table.food-items') %>%
+  magrittr:: extract2(5) %>% html_table()
+```
+
+
+
+
+#### 3.8 - Reading JSON Data
+
+
+``` {r JSON1}
+# Importing jsonlite package
+library(jsonlite)
+
+# Assign the JSON data from the internet to a variable
+pizza <- fromJSON('http://www.jaredlander.com/data/PizzaFavorites.json')
+pizza
+
+# Check the class of the return object
+class(pizza)
+
+# Check the data type in a specific column
+class(pizza$Name)
+class(pizza$Details)
+class(pizza$Details[[1]])
+```
+
+
+#### Summary:
+
+
+
+
+
