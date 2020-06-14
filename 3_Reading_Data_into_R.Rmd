@@ -208,6 +208,10 @@ Hadley Wickham developed a package, **haven**, which is similar to the **foreing
 
 #### 3.5 - Reading RData File
 
+The best way to store and share objects from R is with **RData** files are specific to R and can store as many objects as you'd like within a single file. It can also be opened in different operation systems, Windows, Mac, and Linux.
+
+In this example, we first create a RData file storing the R objects. Next, we remove the objects from the global environment. Then we load the objects from the RData file to retrieve the objects. 
+
 ``` {r RData1, tomato=tomato}
 # Save tomato data.frame to the local drive
 save(tomato, file="data/tomato.rdata")
@@ -223,11 +227,7 @@ load("data/tomato.rdata")
 
 # Check if tomato exists
 head(tomato)
-```
 
-
-
-``` {r RData2}
 # Create two objects and store into a data.frame
 n <- 20
 r <- 1:10
@@ -255,9 +255,11 @@ r
 w
 ```
 
+Note: Loading the RData file into R does not need to assign to a variable like loading the Excel or CSV file because the RData file load all the saved objects to the working environment.
 
+R has another data format for saving a single R object from the working environment, which is **RDS**. We use the saveRDS() function to save the object to the RDS file. Note that RDS file does not save the object name, so when we reading the file into R using readDRS() function, we need to assign it to a variable. Here is an example.
 
-``` {r RData3}
+``` {r RData2}
 # Create a vector object
 smallVector <- c(1, 5, 4)
 smallVector
@@ -273,9 +275,9 @@ thatVect
 identical(samllVector, thatVect)
 ```
 
-
-
 #### 3.6 - Reading R Built-In Data
+
+Similar to other statistical software, R offers a list of datasets from different packages, such as ggplot2, MASS, and ISLR. We demonstrate loading the diamonds dataset from ggplot2 package in this example.
 
 ``` {r Built-In Data1}
 # Reading the built-in data set diamonds
@@ -285,8 +287,7 @@ data(diamonds, package='ggplot2')
 head(diamonds)
 ```
 
-
-
+Note: An alternative way to load the built-in datasets in R is importing the package before using the dataset.
 
 #### 3.7 - Reading Data from the Internet
 
