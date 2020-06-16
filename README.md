@@ -6,7 +6,7 @@ R is an open-source software available for all commonly used operating system, i
 
 Once R is installed on your machine, you can visit the [RStudio](https://rstudio.com/products/rstudio/download/) website and follow the instructions to install the IDE on your machine. 
 
-To start coding in R, we only need to start RStudio because it automatically runs the R software in the background and execute the code.  The interface in RStudio is very intuitive to use and here is a picture to explain:
+To start coding in R, we only need to start RStudio because it automatically runs the R software in the background and execute the code.  The RStudio interface is fairly intuitive to use and here is a picture to explain:
 
 ![rstudio](/images/rstudio.png)
 
