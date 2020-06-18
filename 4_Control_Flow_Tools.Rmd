@@ -1,0 +1,12 @@
+---
+title: "R Control Flow Tools"
+author: "Norman Lo"
+date: "6/16/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Control Flow Tools
