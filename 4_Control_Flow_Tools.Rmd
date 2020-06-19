@@ -10,3 +10,167 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## R Control Flow Tools
+
+In order to control the execution of the expression flow in R, we make use of the logical **Control flow tools** or control structures in R. R provides various standard control flow tools for testing different conditions and facilitates the flow of execution to be controled inside a function. We cover the following control flow tools in R in this lesson:
+
+- if-else
+- switch
+- ifelse
+- for loop
+- while loop
+- break and next
+
+#### 4.1 - if and else statements
+
+Like most of the programming languages, most logical test is performed using the '**if**' statement. The 'if' statement evaluates an expression(s) and check whether a condition is met, then returns one value (1) if TRUE and another value (0) if FALSE. The code(s) will be executed only if the condition is returned as TRUE; otherwise, it either jumps into the an '**else**' condition test or ends the program flow. As mentioned in the previous sections, TRUE has the equal value of "1" and FALSE is equal to "0" in R.
+
+``` {r if_else1}
+# Check the numeric value of TRUE
+as.numeric(TRUE)
+
+# Check the numeric value of FALSE
+as.numeric(FALSE)
+```
+
+When we apply the logical test, it returns either TRUE or FALSE. We can evaluate the following condtions and check the return values.
+
+``` {r if_else2}
+# Check the condition 1 equals 1
+1 == 1
+
+# Check the condition 1 is less than 1
+1 < 1
+
+# Check the condition 1 is less than or equal to 1
+1 <= 1
+
+# Check the condition 1 is greater than 1
+1 > 1
+
+# Check the condition 1 is greater than or equal to 1
+1 >= 1
+
+# Check the condition 1 is not equal to 1
+1 != 1
+```
+
+Now, let's combine the condition test with the 'if' statement for contolling the executions.
+
+``` {r if_else3}
+# Assign 1 to a variable
+toCheck <- 1
+
+# Use the 'if' statement that return "hello" if the variable equals 1
+if (toCheck == 1) {
+  print("hello")
+}
+
+# Use the 'if' statement that returns "hello" if the variable equals 0
+if (toCheck == 0) {
+  print("hello")
+}  # no return result in this case
+```
+
+'if' statement is similar to the R functions, the expression(s) is/are wrapped inside the curly brackets "{ }". In the previous example, when the condition is met or equals TRUE, the expression is executed. In more general cases, there could be multiple expressions or nested control statements to be wrapped under a single condition test. When the condition test fails or equals FALSE, no action will be taken. If we want to assign different action(s) for failing the condition test, we could use the 'else' statement to define.
+
+``` {r if_else4}
+# Create a function and assign to a variable
+check.bool <- function(x) {
+  # Create a condition test for this function
+  if (x == 1) {
+    print("hello")
+  }
+  # Create an alternative action
+  else {
+    print("goodbye")
+  }
+}
+```
+
+In this example, we added the 'else' statement to the function, so when the first condition is not met, the function returns "goodbye". It's important to pay attention to the indentation when writing the 'if' and 'else' statements. If they are not aligned in the more complex nested conditional tests, it would be easy to run into an error.
+
+``` {r if_else5, check.bool}
+# Using the function with different inputs
+check.bool(1)
+
+check.bool(0)
+
+check.bool("k")
+
+check.bool(TRUE)
+```
+
+If we need to add multiple testing conditions to the function, an 'else if' statement would help. Let's build a function that test the condition if the variable equals 1, print "hello", if the variable equals 0, print "goodbye", for all other cases, print "confused".
+
+``` {r if_else}
+# Create a function with multiple condition tests
+check.bool <- function(x) {
+  # First condition for x equals 1
+  if (x == 1) {
+    print("hello")
+  }
+  # Second condtion for x equals 0
+  else if (x == 0) {
+    print("goodbye")
+  }
+  # For all other cases
+  else {
+    print("confused")
+  }
+}
+
+# Check the function with different values
+check.bool(1)
+
+check.bool(0)
+
+check.bool(2)
+
+check.bool("k")
+```
+
+#### 4.2 - Switch
+
+
+
+``` {r switch1}
+
+```
+
+
+#### 4.3 - ifelse
+
+
+``` {r ifelse1}
+
+```
+
+
+#### 4.4 - for loop
+
+
+
+``` {r forloop1}
+
+```
+
+
+
+
+#### 4.5 - while loop
+
+
+``` {r whileloop1}
+
+```
+
+
+#### 4.6 - break and next statements
+
+
+
+``` {r break_next1}
+
+```
+
+
