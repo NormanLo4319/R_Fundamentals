@@ -36,8 +36,9 @@ To start coding in R, we only need to start RStudio because it automatically run
 - Reading JSON Data
 
 ## Lesson 4 - Control Flow Tools
-- "if" and "else"
-- "switch"
-- "ifelse"
-- "for" Loop
-- "while" Loop
+- "if" and "else" Statements
+- switch()
+- ifelse()
+- for Loop
+- while Loop
+- "break" and "next" Statements
