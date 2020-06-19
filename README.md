@@ -19,7 +19,7 @@ To start coding in R, we only need to start RStudio because it automatically run
 - Missing Values
 - Pipe
 
-## Lesson 2 - Basic Data Structure in R
+## Lesson 2 - Basic Data Objects in R
 - data.frame
 - List
 - Matrix
