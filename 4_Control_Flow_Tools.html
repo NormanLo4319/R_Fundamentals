@@ -12,7 +12,7 @@
 <meta name="author" content="Norman Lo" />
 
 
-<title>Basic Data Structure in R</title>
+<title>R Control Flow Tools</title>
 
 <script>/*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
 !function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error("jQuery requires a window with a document");return b(a)}:b(a)}("undefined"!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l="1.11.3",m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,o=/^-ms-/,p=/-([\da-z])/gi,q=function(a,b){return b.toUpperCase()};m.fn=m.prototype={jquery:l,constructor:m,selector:"",length:0,toArray:function(){return d.call(this)},get:function(a){return null!=a?0>a?this[a+this.length]:this[a]:d.call(this)},pushStack:function(a){var b=m.merge(this.constructor(),a);return b.prevObject=this,b.context=this.context,b},each:function(a,b){return m.each(this,a,b)},map:function(a){return this.pushStack(m.map(this,function(b,c){return a.call(b,c,b)}))},slice:function(){return this.pushStack(d.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(a){var b=this.length,c=+a+(0>a?b:0);return this.pushStack(c>=0&&b>c?[this[c]]:[])},end:function(){return this.prevObject||this.constructor(null)},push:f,sort:c.sort,splice:c.splice},m.extend=m.fn.extend=function(){var a,b,c,d,e,f,g=arguments[0]||{},h=1,i=arguments.length,j=!1;for("boolean"==typeof g&&(j=g,g=arguments[h]||{},h++),"object"==typeof g||m.isFunction(g)||(g={}),h===i&&(g=this,h--);i>h;h++)if(null!=(e=arguments[h]))for(d in e)a=g[d],c=e[d],g!==c&&(j&&c&&(m.isPlainObject(c)||(b=m.isArray(c)))?(b?(b=!1,f=a&&m.isArray(a)?a:[]):f=a&&m.isPlainObject(a)?a:{},g[d]=m.extend(j,f,c)):void 0!==c&&(g[d]=c));return g},m.extend({expando:"jQuery"+(l+Math.random()).replace(/\D/g,""),isReady:!0,error:function(a){throw new Error(a)},noop:function(){},isFunction:function(a){return"function"===m.type(a)},isArray:Array.isArray||function(a){return"array"===m.type(a)},isWindow:function(a){return null!=a&&a==a.window},isNumeric:function(a){return!m.isArray(a)&&a-parseFloat(a)+1>=0},isEmptyObject:function(a){var b;for(b in a)return!1;return!0},isPlainObject:function(a){var b;if(!a||"object"!==m.type(a)||a.nodeType||m.isWindow(a))return!1;try{if(a.constructor&&!j.call(a,"constructor")&&!j.call(a.constructor.prototype,"isPrototypeOf"))return!1}catch(c){return!1}if(k.ownLast)for(b in a)return j.call(a,b);for(b in a);return void 0===b||j.call(a,b)},type:function(a){return null==a?a+"":"object"==typeof a||"function"==typeof a?h[i.call(a)]||"object":typeof a},globalEval:function(b){b&&m.trim(b)&&(a.execScript||function(b){a.eval.call(a,b)})(b)},camelCase:function(a){return a.replace(o,"ms-").replace(p,q)},nodeName:function(a,b){return a.nodeName&&a.nodeName.toLowerCase()===b.toLowerCase()},each:function(a,b,c){var d,e=0,f=a.length,g=r(a);if(c){if(g){for(;f>e;e++)if(d=b.apply(a[e],c),d===!1)break}else for(e in a)if(d=b.apply(a[e],c),d===!1)break}else if(g){for(;f>e;e++)if(d=b.call(a[e],e,a[e]),d===!1)break}else for(e in a)if(d=b.call(a[e],e,a[e]),d===!1)break;return a},trim:function(a){return null==a?"":(a+"").replace(n,"")},makeArray:function(a,b){var c=b||[];return null!=a&&(r(Object(a))?m.merge(c,"string"==typeof a?[a]:a):f.call(c,a)),c},inArray:function(a,b,c){var d;if(b){if(g)return g.call(b,a,c);for(d=b.length,c=c?0>c?Math.max(0,d+c):c:0;d>c;c++)if(c in b&&b[c]===a)return c}return-1},merge:function(a,b){var c=+b.length,d=0,e=a.length;while(c>d)a[e++]=b[d++];if(c!==c)while(void 0!==b[d])a[e++]=b[d++];return a.length=e,a},grep:function(a,b,c){for(var d,e=[],f=0,g=a.length,h=!c;g>f;f++)d=!b(a[f],f),d!==h&&e.push(a[f]);return e},map:function(a,b,c){var d,f=0,g=a.length,h=r(a),i=[];if(h)for(;g>f;f++)d=b(a[f],f,c),null!=d&&i.push(d);else for(f in a)d=b(a[f],f,c),null!=d&&i.push(d);return e.apply([],i)},guid:1,proxy:function(a,b){var c,e,f;return"string"==typeof b&&(f=a[b],b=a,a=f),m.isFunction(a)?(c=d.call(arguments,2),e=function(){return a.apply(b||this,c.concat(d.call(arguments)))},e.guid=a.guid=a.guid||m.guid++,e):void 0},now:function(){return+new Date},support:k}),m.each("Boolean Number String Function Array Date RegExp Object Error".split(" "),function(a,b){h["[object "+b+"]"]=b.toLowerCase()});function r(a){var b="length"in a&&a.length,c=m.type(a);return"function"===c||m.isWindow(a)?!1:1===a.nodeType&&b?!0:"array"===c||0===b||"number"==typeof b&&b>0&&b-1 in a}var s=function(a){var b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u="sizzle"+1*new Date,v=a.document,w=0,x=0,y=ha(),z=ha(),A=ha(),B=function(a,b){return a===b&&(l=!0),0},C=1<<31,D={}.hasOwnProperty,E=[],F=E.pop,G=E.push,H=E.push,I=E.slice,J=function(a,b){for(var c=0,d=a.length;d>c;c++)if(a[c]===b)return c;return-1},K="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",L="[\\x20\\t\\r\\n\\f]",M="(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",N=M.replace("w","w#"),O="\\["+L+"*("+M+")(?:"+L+"*([*^$|!~]?=)"+L+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+N+"))|)"+L+"*\\]",P=":("+M+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+O+")*)|.*)\\)|)",Q=new RegExp(L+"+","g"),R=new RegExp("^"+L+"+|((?:^|[^\\\\])(?:\\\\.)*)"+L+"+$","g"),S=new RegExp("^"+L+"*,"+L+"*"),T=new RegExp("^"+L+"*([>+~]|"+L+")"+L+"*"),U=new RegExp("="+L+"*([^\\]'\"]*?)"+L+"*\\]","g"),V=new RegExp(P),W=new RegExp("^"+N+"$"),X={ID:new RegExp("^#("+M+")"),CLASS:new RegExp("^\\.("+M+")"),TAG:new RegExp("^("+M.replace("w","w*")+")"),ATTR:new RegExp("^"+O),PSEUDO:new RegExp("^"+P),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+L+"*(even|odd|(([+-]|)(\\d*)n|)"+L+"*(?:([+-]|)"+L+"*(\\d+)|))"+L+"*\\)|)","i"),bool:new RegExp("^(?:"+K+")$","i"),needsContext:new RegExp("^"+L+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+L+"*((?:-\\d)?\\d*)"+L+"*\\)|)(?=[^-]|$)","i")},Y=/^(?:input|select|textarea|button)$/i,Z=/^h\d$/i,$=/^[^{]+\{\s*\[native \w/,_=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,aa=/[+~]/,ba=/'|\\/g,ca=new RegExp("\\\\([\\da-f]{1,6}"+L+"?|("+L+")|.)","ig"),da=function(a,b,c){var d="0x"+b-65536;return d!==d||c?b:0>d?String.fromCharCode(d+65536):String.fromCharCode(d>>10|55296,1023&d|56320)},ea=function(){m()};try{H.apply(E=I.call(v.childNodes),v.childNodes),E[v.childNodes.length].nodeType}catch(fa){H={apply:E.length?function(a,b){G.apply(a,I.call(b))}:function(a,b){var c=a.length,d=0;while(a[c++]=b[d++]);a.length=c-1}}}function ga(a,b,d,e){var f,h,j,k,l,o,r,s,w,x;if((b?b.ownerDocument||b:v)!==n&&m(b),b=b||n,d=d||[],k=b.nodeType,"string"!=typeof a||!a||1!==k&&9!==k&&11!==k)return d;if(!e&&p){if(11!==k&&(f=_.exec(a)))if(j=f[1]){if(9===k){if(h=b.getElementById(j),!h||!h.parentNode)return d;if(h.id===j)return d.push(h),d}else if(b.ownerDocument&&(h=b.ownerDocument.getElementById(j))&&t(b,h)&&h.id===j)return d.push(h),d}else{if(f[2])return H.apply(d,b.getElementsByTagName(a)),d;if((j=f[3])&&c.getElementsByClassName)return H.apply(d,b.getElementsByClassName(j)),d}if(c.qsa&&(!q||!q.test(a))){if(s=r=u,w=b,x=1!==k&&a,1===k&&"object"!==b.nodeName.toLowerCase()){o=g(a),(r=b.getAttribute("id"))?s=r.replace(ba,"\\$&"):b.setAttribute("id",s),s="[id='"+s+"'] ",l=o.length;while(l--)o[l]=s+ra(o[l]);w=aa.test(a)&&pa(b.parentNode)||b,x=o.join(",")}if(x)try{return H.apply(d,w.querySelectorAll(x)),d}catch(y){}finally{r||b.removeAttribute("id")}}}return i(a.replace(R,"$1"),b,d,e)}function ha(){var a=[];function b(c,e){return a.push(c+" ")>d.cacheLength&&delete b[a.shift()],b[c+" "]=e}return b}function ia(a){return a[u]=!0,a}function ja(a){var b=n.createElement("div");try{return!!a(b)}catch(c){return!1}finally{b.parentNode&&b.parentNode.removeChild(b),b=null}}function ka(a,b){var c=a.split("|"),e=a.length;while(e--)d.attrHandle[c[e]]=b}function la(a,b){var c=b&&a,d=c&&1===a.nodeType&&1===b.nodeType&&(~b.sourceIndex||C)-(~a.sourceIndex||C);if(d)return d;if(c)while(c=c.nextSibling)if(c===b)return-1;return a?1:-1}function ma(a){return function(b){var c=b.nodeName.toLowerCase();return"input"===c&&b.type===a}}function na(a){return function(b){var c=b.nodeName.toLowerCase();return("input"===c||"button"===c)&&b.type===a}}function oa(a){return ia(function(b){return b=+b,ia(function(c,d){var e,f=a([],c.length,b),g=f.length;while(g--)c[e=f[g]]&&(c[e]=!(d[e]=c[e]))})})}function pa(a){return a&&"undefined"!=typeof a.getElementsByTagName&&a}c=ga.support={},f=ga.isXML=function(a){var b=a&&(a.ownerDocument||a).documentElement;return b?"HTML"!==b.nodeName:!1},m=ga.setDocument=function(a){var b,e,g=a?a.ownerDocument||a:v;return g!==n&&9===g.nodeType&&g.documentElement?(n=g,o=g.documentElement,e=g.defaultView,e&&e!==e.top&&(e.addEventListener?e.addEventListener("unload",ea,!1):e.attachEvent&&e.attachEvent("onunload",ea)),p=!f(g),c.attributes=ja(function(a){return a.className="i",!a.getAttribute("className")}),c.getElementsByTagName=ja(function(a){return a.appendChild(g.createComment("")),!a.getElementsByTagName("*").length}),c.getElementsByClassName=$.test(g.getElementsByClassName),c.getById=ja(function(a){return o.appendChild(a).id=u,!g.getElementsByName||!g.getElementsByName(u).length}),c.getById?(d.find.ID=function(a,b){if("undefined"!=typeof b.getElementById&&p){var c=b.getElementById(a);return c&&c.parentNode?[c]:[]}},d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){return a.getAttribute("id")===b}}):(delete d.find.ID,d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){var c="undefined"!=typeof a.getAttributeNode&&a.getAttributeNode("id");return c&&c.value===b}}),d.find.TAG=c.getElementsByTagName?function(a,b){return"undefined"!=typeof b.getElementsByTagName?b.getElementsByTagName(a):c.qsa?b.querySelectorAll(a):void 0}:function(a,b){var c,d=[],e=0,f=b.getElementsByTagName(a);if("*"===a){while(c=f[e++])1===c.nodeType&&d.push(c);return d}return f},d.find.CLASS=c.getElementsByClassName&&function(a,b){return p?b.getElementsByClassName(a):void 0},r=[],q=[],(c.qsa=$.test(g.querySelectorAll))&&(ja(function(a){o.appendChild(a).innerHTML="<a id='"+u+"'></a><select id='"+u+"-\f]' msallowcapture=''><option selected=''></option></select>",a.querySelectorAll("[msallowcapture^='']").length&&q.push("[*^$]="+L+"*(?:''|\"\")"),a.querySelectorAll("[selected]").length||q.push("\\["+L+"*(?:value|"+K+")"),a.querySelectorAll("[id~="+u+"-]").length||q.push("~="),a.querySelectorAll(":checked").length||q.push(":checked"),a.querySelectorAll("a#"+u+"+*").length||q.push(".#.+[+~]")}),ja(function(a){var b=g.createElement("input");b.setAttribute("type","hidden"),a.appendChild(b).setAttribute("name","D"),a.querySelectorAll("[name=d]").length&&q.push("name"+L+"*[*^$|!~]?="),a.querySelectorAll(":enabled").length||q.push(":enabled",":disabled"),a.querySelectorAll("*,:x"),q.push(",.*:")})),(c.matchesSelector=$.test(s=o.matches||o.webkitMatchesSelector||o.mozMatchesSelector||o.oMatchesSelector||o.msMatchesSelector))&&ja(function(a){c.disconnectedMatch=s.call(a,"div"),s.call(a,"[s!='']:x"),r.push("!=",P)}),q=q.length&&new RegExp(q.join("|")),r=r.length&&new RegExp(r.join("|")),b=$.test(o.compareDocumentPosition),t=b||$.test(o.contains)?function(a,b){var c=9===a.nodeType?a.documentElement:a,d=b&&b.parentNode;return a===d||!(!d||1!==d.nodeType||!(c.contains?c.contains(d):a.compareDocumentPosition&&16&a.compareDocumentPosition(d)))}:function(a,b){if(b)while(b=b.parentNode)if(b===a)return!0;return!1},B=b?function(a,b){if(a===b)return l=!0,0;var d=!a.compareDocumentPosition-!b.compareDocumentPosition;return d?d:(d=(a.ownerDocument||a)===(b.ownerDocument||b)?a.compareDocumentPosition(b):1,1&d||!c.sortDetached&&b.compareDocumentPosition(a)===d?a===g||a.ownerDocument===v&&t(v,a)?-1:b===g||b.ownerDocument===v&&t(v,b)?1:k?J(k,a)-J(k,b):0:4&d?-1:1)}:function(a,b){if(a===b)return l=!0,0;var c,d=0,e=a.parentNode,f=b.parentNode,h=[a],i=[b];if(!e||!f)return a===g?-1:b===g?1:e?-1:f?1:k?J(k,a)-J(k,b):0;if(e===f)return la(a,b);c=a;while(c=c.parentNode)h.unshift(c);c=b;while(c=c.parentNode)i.unshift(c);while(h[d]===i[d])d++;return d?la(h[d],i[d]):h[d]===v?-1:i[d]===v?1:0},g):n},ga.matches=function(a,b){return ga(a,null,null,b)},ga.matchesSelector=function(a,b){if((a.ownerDocument||a)!==n&&m(a),b=b.replace(U,"='$1']"),!(!c.matchesSelector||!p||r&&r.test(b)||q&&q.test(b)))try{var d=s.call(a,b);if(d||c.disconnectedMatch||a.document&&11!==a.document.nodeType)return d}catch(e){}return ga(b,n,null,[a]).length>0},ga.contains=function(a,b){return(a.ownerDocument||a)!==n&&m(a),t(a,b)},ga.attr=function(a,b){(a.ownerDocument||a)!==n&&m(a);var e=d.attrHandle[b.toLowerCase()],f=e&&D.call(d.attrHandle,b.toLowerCase())?e(a,b,!p):void 0;return void 0!==f?f:c.attributes||!p?a.getAttribute(b):(f=a.getAttributeNode(b))&&f.specified?f.value:null},ga.error=function(a){throw new Error("Syntax error, unrecognized expression: "+a)},ga.uniqueSort=function(a){var b,d=[],e=0,f=0;if(l=!c.detectDuplicates,k=!c.sortStable&&a.slice(0),a.sort(B),l){while(b=a[f++])b===a[f]&&(e=d.push(f));while(e--)a.splice(d[e],1)}return k=null,a},e=ga.getText=function(a){var b,c="",d=0,f=a.nodeType;if(f){if(1===f||9===f||11===f){if("string"==typeof a.textContent)return a.textContent;for(a=a.firstChild;a;a=a.nextSibling)c+=e(a)}else if(3===f||4===f)return a.nodeValue}else while(b=a[d++])c+=e(b);return c},d=ga.selectors={cacheLength:50,createPseudo:ia,match:X,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(a){return a[1]=a[1].replace(ca,da),a[3]=(a[3]||a[4]||a[5]||"").replace(ca,da),"~="===a[2]&&(a[3]=" "+a[3]+" "),a.slice(0,4)},CHILD:function(a){return a[1]=a[1].toLowerCase(),"nth"===a[1].slice(0,3)?(a[3]||ga.error(a[0]),a[4]=+(a[4]?a[5]+(a[6]||1):2*("even"===a[3]||"odd"===a[3])),a[5]=+(a[7]+a[8]||"odd"===a[3])):a[3]&&ga.error(a[0]),a},PSEUDO:function(a){var b,c=!a[6]&&a[2];return X.CHILD.test(a[0])?null:(a[3]?a[2]=a[4]||a[5]||"":c&&V.test(c)&&(b=g(c,!0))&&(b=c.indexOf(")",c.length-b)-c.length)&&(a[0]=a[0].slice(0,b),a[2]=c.slice(0,b)),a.slice(0,3))}},filter:{TAG:function(a){var b=a.replace(ca,da).toLowerCase();return"*"===a?function(){return!0}:function(a){return a.nodeName&&a.nodeName.toLowerCase()===b}},CLASS:function(a){var b=y[a+" "];return b||(b=new RegExp("(^|"+L+")"+a+"("+L+"|$)"))&&y(a,function(a){return b.test("string"==typeof a.className&&a.className||"undefined"!=typeof a.getAttribute&&a.getAttribute("class")||"")})},ATTR:function(a,b,c){return function(d){var e=ga.attr(d,a);return null==e?"!="===b:b?(e+="","="===b?e===c:"!="===b?e!==c:"^="===b?c&&0===e.indexOf(c):"*="===b?c&&e.indexOf(c)>-1:"$="===b?c&&e.slice(-c.length)===c:"~="===b?(" "+e.replace(Q," ")+" ").indexOf(c)>-1:"|="===b?e===c||e.slice(0,c.length+1)===c+"-":!1):!0}},CHILD:function(a,b,c,d,e){var f="nth"!==a.slice(0,3),g="last"!==a.slice(-4),h="of-type"===b;return 1===d&&0===e?function(a){return!!a.parentNode}:function(b,c,i){var j,k,l,m,n,o,p=f!==g?"nextSibling":"previousSibling",q=b.parentNode,r=h&&b.nodeName.toLowerCase(),s=!i&&!h;if(q){if(f){while(p){l=b;while(l=l[p])if(h?l.nodeName.toLowerCase()===r:1===l.nodeType)return!1;o=p="only"===a&&!o&&"nextSibling"}return!0}if(o=[g?q.firstChild:q.lastChild],g&&s){k=q[u]||(q[u]={}),j=k[a]||[],n=j[0]===w&&j[1],m=j[0]===w&&j[2],l=n&&q.childNodes[n];while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if(1===l.nodeType&&++m&&l===b){k[a]=[w,n,m];break}}else if(s&&(j=(b[u]||(b[u]={}))[a])&&j[0]===w)m=j[1];else while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if((h?l.nodeName.toLowerCase()===r:1===l.nodeType)&&++m&&(s&&((l[u]||(l[u]={}))[a]=[w,m]),l===b))break;return m-=e,m===d||m%d===0&&m/d>=0}}},PSEUDO:function(a,b){var c,e=d.pseudos[a]||d.setFilters[a.toLowerCase()]||ga.error("unsupported pseudo: "+a);return e[u]?e(b):e.length>1?(c=[a,a,"",b],d.setFilters.hasOwnProperty(a.toLowerCase())?ia(function(a,c){var d,f=e(a,b),g=f.length;while(g--)d=J(a,f[g]),a[d]=!(c[d]=f[g])}):function(a){return e(a,0,c)}):e}},pseudos:{not:ia(function(a){var b=[],c=[],d=h(a.replace(R,"$1"));return d[u]?ia(function(a,b,c,e){var f,g=d(a,null,e,[]),h=a.length;while(h--)(f=g[h])&&(a[h]=!(b[h]=f))}):function(a,e,f){return b[0]=a,d(b,null,f,c),b[0]=null,!c.pop()}}),has:ia(function(a){return function(b){return ga(a,b).length>0}}),contains:ia(function(a){return a=a.replace(ca,da),function(b){return(b.textContent||b.innerText||e(b)).indexOf(a)>-1}}),lang:ia(function(a){return W.test(a||"")||ga.error("unsupported lang: "+a),a=a.replace(ca,da).toLowerCase(),function(b){var c;do if(c=p?b.lang:b.getAttribute("xml:lang")||b.getAttribute("lang"))return c=c.toLowerCase(),c===a||0===c.indexOf(a+"-");while((b=b.parentNode)&&1===b.nodeType);return!1}}),target:function(b){var c=a.location&&a.location.hash;return c&&c.slice(1)===b.id},root:function(a){return a===o},focus:function(a){return a===n.activeElement&&(!n.hasFocus||n.hasFocus())&&!!(a.type||a.href||~a.tabIndex)},enabled:function(a){return a.disabled===!1},disabled:function(a){return a.disabled===!0},checked:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&!!a.checked||"option"===b&&!!a.selected},selected:function(a){return a.parentNode&&a.parentNode.selectedIndex,a.selected===!0},empty:function(a){for(a=a.firstChild;a;a=a.nextSibling)if(a.nodeType<6)return!1;return!0},parent:function(a){return!d.pseudos.empty(a)},header:function(a){return Z.test(a.nodeName)},input:function(a){return Y.test(a.nodeName)},button:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&"button"===a.type||"button"===b},text:function(a){var b;return"input"===a.nodeName.toLowerCase()&&"text"===a.type&&(null==(b=a.getAttribute("type"))||"text"===b.toLowerCase())},first:oa(function(){return[0]}),last:oa(function(a,b){return[b-1]}),eq:oa(function(a,b,c){return[0>c?c+b:c]}),even:oa(function(a,b){for(var c=0;b>c;c+=2)a.push(c);return a}),odd:oa(function(a,b){for(var c=1;b>c;c+=2)a.push(c);return a}),lt:oa(function(a,b,c){for(var d=0>c?c+b:c;--d>=0;)a.push(d);return a}),gt:oa(function(a,b,c){for(var d=0>c?c+b:c;++d<b;)a.push(d);return a})}},d.pseudos.nth=d.pseudos.eq;for(b in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})d.pseudos[b]=ma(b);for(b in{submit:!0,reset:!0})d.pseudos[b]=na(b);function qa(){}qa.prototype=d.filters=d.pseudos,d.setFilters=new qa,g=ga.tokenize=function(a,b){var c,e,f,g,h,i,j,k=z[a+" "];if(k)return b?0:k.slice(0);h=a,i=[],j=d.preFilter;while(h){(!c||(e=S.exec(h)))&&(e&&(h=h.slice(e[0].length)||h),i.push(f=[])),c=!1,(e=T.exec(h))&&(c=e.shift(),f.push({value:c,type:e[0].replace(R," ")}),h=h.slice(c.length));for(g in d.filter)!(e=X[g].exec(h))||j[g]&&!(e=j[g](e))||(c=e.shift(),f.push({value:c,type:g,matches:e}),h=h.slice(c.length));if(!c)break}return b?h.length:h?ga.error(a):z(a,i).slice(0)};function ra(a){for(var b=0,c=a.length,d="";c>b;b++)d+=a[b].value;return d}function sa(a,b,c){var d=b.dir,e=c&&"parentNode"===d,f=x++;return b.first?function(b,c,f){while(b=b[d])if(1===b.nodeType||e)return a(b,c,f)}:function(b,c,g){var h,i,j=[w,f];if(g){while(b=b[d])if((1===b.nodeType||e)&&a(b,c,g))return!0}else while(b=b[d])if(1===b.nodeType||e){if(i=b[u]||(b[u]={}),(h=i[d])&&h[0]===w&&h[1]===f)return j[2]=h[2];if(i[d]=j,j[2]=a(b,c,g))return!0}}}function ta(a){return a.length>1?function(b,c,d){var e=a.length;while(e--)if(!a[e](b,c,d))return!1;return!0}:a[0]}function ua(a,b,c){for(var d=0,e=b.length;e>d;d++)ga(a,b[d],c);return c}function va(a,b,c,d,e){for(var f,g=[],h=0,i=a.length,j=null!=b;i>h;h++)(f=a[h])&&(!c||c(f,d,e))&&(g.push(f),j&&b.push(h));return g}function wa(a,b,c,d,e,f){return d&&!d[u]&&(d=wa(d)),e&&!e[u]&&(e=wa(e,f)),ia(function(f,g,h,i){var j,k,l,m=[],n=[],o=g.length,p=f||ua(b||"*",h.nodeType?[h]:h,[]),q=!a||!f&&b?p:va(p,m,a,h,i),r=c?e||(f?a:o||d)?[]:g:q;if(c&&c(q,r,h,i),d){j=va(r,n),d(j,[],h,i),k=j.length;while(k--)(l=j[k])&&(r[n[k]]=!(q[n[k]]=l))}if(f){if(e||a){if(e){j=[],k=r.length;while(k--)(l=r[k])&&j.push(q[k]=l);e(null,r=[],j,i)}k=r.length;while(k--)(l=r[k])&&(j=e?J(f,l):m[k])>-1&&(f[j]=!(g[j]=l))}}else r=va(r===g?r.splice(o,r.length):r),e?e(null,g,r,i):H.apply(g,r)})}function xa(a){for(var b,c,e,f=a.length,g=d.relative[a[0].type],h=g||d.relative[" "],i=g?1:0,k=sa(function(a){return a===b},h,!0),l=sa(function(a){return J(b,a)>-1},h,!0),m=[function(a,c,d){var e=!g&&(d||c!==j)||((b=c).nodeType?k(a,c,d):l(a,c,d));return b=null,e}];f>i;i++)if(c=d.relative[a[i].type])m=[sa(ta(m),c)];else{if(c=d.filter[a[i].type].apply(null,a[i].matches),c[u]){for(e=++i;f>e;e++)if(d.relative[a[e].type])break;return wa(i>1&&ta(m),i>1&&ra(a.slice(0,i-1).concat({value:" "===a[i-2].type?"*":""})).replace(R,"$1"),c,e>i&&xa(a.slice(i,e)),f>e&&xa(a=a.slice(e)),f>e&&ra(a))}m.push(c)}return ta(m)}function ya(a,b){var c=b.length>0,e=a.length>0,f=function(f,g,h,i,k){var l,m,o,p=0,q="0",r=f&&[],s=[],t=j,u=f||e&&d.find.TAG("*",k),v=w+=null==t?1:Math.random()||.1,x=u.length;for(k&&(j=g!==n&&g);q!==x&&null!=(l=u[q]);q++){if(e&&l){m=0;while(o=a[m++])if(o(l,g,h)){i.push(l);break}k&&(w=v)}c&&((l=!o&&l)&&p--,f&&r.push(l))}if(p+=q,c&&q!==p){m=0;while(o=b[m++])o(r,s,g,h);if(f){if(p>0)while(q--)r[q]||s[q]||(s[q]=F.call(i));s=va(s)}H.apply(i,s),k&&!f&&s.length>0&&p+b.length>1&&ga.uniqueSort(i)}return k&&(w=v,j=t),r};return c?ia(f):f}return h=ga.compile=function(a,b){var c,d=[],e=[],f=A[a+" "];if(!f){b||(b=g(a)),c=b.length;while(c--)f=xa(b[c]),f[u]?d.push(f):e.push(f);f=A(a,ya(e,d)),f.selector=a}return f},i=ga.select=function(a,b,e,f){var i,j,k,l,m,n="function"==typeof a&&a,o=!f&&g(a=n.selector||a);if(e=e||[],1===o.length){if(j=o[0]=o[0].slice(0),j.length>2&&"ID"===(k=j[0]).type&&c.getById&&9===b.nodeType&&p&&d.relative[j[1].type]){if(b=(d.find.ID(k.matches[0].replace(ca,da),b)||[])[0],!b)return e;n&&(b=b.parentNode),a=a.slice(j.shift().value.length)}i=X.needsContext.test(a)?0:j.length;while(i--){if(k=j[i],d.relative[l=k.type])break;if((m=d.find[l])&&(f=m(k.matches[0].replace(ca,da),aa.test(j[0].type)&&pa(b.parentNode)||b))){if(j.splice(i,1),a=f.length&&ra(j),!a)return H.apply(e,f),e;break}}}return(n||h(a,o))(f,b,!p,e,aa.test(a)&&pa(b.parentNode)||b),e},c.sortStable=u.split("").sort(B).join("")===u,c.detectDuplicates=!!l,m(),c.sortDetached=ja(function(a){return 1&a.compareDocumentPosition(n.createElement("div"))}),ja(function(a){return a.innerHTML="<a href='#'></a>","#"===a.firstChild.getAttribute("href")})||ka("type|href|height|width",function(a,b,c){return c?void 0:a.getAttribute(b,"type"===b.toLowerCase()?1:2)}),c.attributes&&ja(function(a){return a.innerHTML="<input/>",a.firstChild.setAttribute("value",""),""===a.firstChild.getAttribute("value")})||ka("value",function(a,b,c){return c||"input"!==a.nodeName.toLowerCase()?void 0:a.defaultValue}),ja(function(a){return null==a.getAttribute("disabled")})||ka(K,function(a,b,c){var d;return c?void 0:a[b]===!0?b.toLowerCase():(d=a.getAttributeNode(b))&&d.specified?d.value:null}),ga}(a);m.find=s,m.expr=s.selectors,m.expr[":"]=m.expr.pseudos,m.unique=s.uniqueSort,m.text=s.getText,m.isXMLDoc=s.isXML,m.contains=s.contains;var t=m.expr.match.needsContext,u=/^<(\w+)\s*\/?>(?:<\/\1>|)$/,v=/^.[^:#\[\.,]*$/;function w(a,b,c){if(m.isFunction(b))return m.grep(a,function(a,d){return!!b.call(a,d,a)!==c});if(b.nodeType)return m.grep(a,function(a){return a===b!==c});if("string"==typeof b){if(v.test(b))return m.filter(b,a,c);b=m.filter(b,a)}return m.grep(a,function(a){return m.inArray(a,b)>=0!==c})}m.filter=function(a,b,c){var d=b[0];return c&&(a=":not("+a+")"),1===b.length&&1===d.nodeType?m.find.matchesSelector(d,a)?[d]:[]:m.find.matches(a,m.grep(b,function(a){return 1===a.nodeType}))},m.fn.extend({find:function(a){var b,c=[],d=this,e=d.length;if("string"!=typeof a)return this.pushStack(m(a).filter(function(){for(b=0;e>b;b++)if(m.contains(d[b],this))return!0}));for(b=0;e>b;b++)m.find(a,d[b],c);return c=this.pushStack(e>1?m.unique(c):c),c.selector=this.selector?this.selector+" "+a:a,c},filter:function(a){return this.pushStack(w(this,a||[],!1))},not:function(a){return this.pushStack(w(this,a||[],!0))},is:function(a){return!!w(this,"string"==typeof a&&t.test(a)?m(a):a||[],!1).length}});var x,y=a.document,z=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,A=m.fn.init=function(a,b){var c,d;if(!a)return this;if("string"==typeof a){if(c="<"===a.charAt(0)&&">"===a.charAt(a.length-1)&&a.length>=3?[null,a,null]:z.exec(a),!c||!c[1]&&b)return!b||b.jquery?(b||x).find(a):this.constructor(b).find(a);if(c[1]){if(b=b instanceof m?b[0]:b,m.merge(this,m.parseHTML(c[1],b&&b.nodeType?b.ownerDocument||b:y,!0)),u.test(c[1])&&m.isPlainObject(b))for(c in b)m.isFunction(this[c])?this[c](b[c]):this.attr(c,b[c]);return this}if(d=y.getElementById(c[2]),d&&d.parentNode){if(d.id!==c[2])return x.find(a);this.length=1,this[0]=d}return this.context=y,this.selector=a,this}return a.nodeType?(this.context=this[0]=a,this.length=1,this):m.isFunction(a)?"undefined"!=typeof x.ready?x.ready(a):a(m):(void 0!==a.selector&&(this.selector=a.selector,this.context=a.context),m.makeArray(a,this))};A.prototype=m.fn,x=m(y);var B=/^(?:parents|prev(?:Until|All))/,C={children:!0,contents:!0,next:!0,prev:!0};m.extend({dir:function(a,b,c){var d=[],e=a[b];while(e&&9!==e.nodeType&&(void 0===c||1!==e.nodeType||!m(e).is(c)))1===e.nodeType&&d.push(e),e=e[b];return d},sibling:function(a,b){for(var c=[];a;a=a.nextSibling)1===a.nodeType&&a!==b&&c.push(a);return c}}),m.fn.extend({has:function(a){var b,c=m(a,this),d=c.length;return this.filter(function(){for(b=0;d>b;b++)if(m.contains(this,c[b]))return!0})},closest:function(a,b){for(var c,d=0,e=this.length,f=[],g=t.test(a)||"string"!=typeof a?m(a,b||this.context):0;e>d;d++)for(c=this[d];c&&c!==b;c=c.parentNode)if(c.nodeType<11&&(g?g.index(c)>-1:1===c.nodeType&&m.find.matchesSelector(c,a))){f.push(c);break}return this.pushStack(f.length>1?m.unique(f):f)},index:function(a){return a?"string"==typeof a?m.inArray(this[0],m(a)):m.inArray(a.jquery?a[0]:a,this):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(a,b){return this.pushStack(m.unique(m.merge(this.get(),m(a,b))))},addBack:function(a){return this.add(null==a?this.prevObject:this.prevObject.filter(a))}});function D(a,b){do a=a[b];while(a&&1!==a.nodeType);return a}m.each({parent:function(a){var b=a.parentNode;return b&&11!==b.nodeType?b:null},parents:function(a){return m.dir(a,"parentNode")},parentsUntil:function(a,b,c){return m.dir(a,"parentNode",c)},next:function(a){return D(a,"nextSibling")},prev:function(a){return D(a,"previousSibling")},nextAll:function(a){return m.dir(a,"nextSibling")},prevAll:function(a){return m.dir(a,"previousSibling")},nextUntil:function(a,b,c){return m.dir(a,"nextSibling",c)},prevUntil:function(a,b,c){return m.dir(a,"previousSibling",c)},siblings:function(a){return m.sibling((a.parentNode||{}).firstChild,a)},children:function(a){return m.sibling(a.firstChild)},contents:function(a){return m.nodeName(a,"iframe")?a.contentDocument||a.contentWindow.document:m.merge([],a.childNodes)}},function(a,b){m.fn[a]=function(c,d){var e=m.map(this,b,c);return"Until"!==a.slice(-5)&&(d=c),d&&"string"==typeof d&&(e=m.filter(d,e)),this.length>1&&(C[a]||(e=m.unique(e)),B.test(a)&&(e=e.reverse())),this.pushStack(e)}});var E=/\S+/g,F={};function G(a){var b=F[a]={};return m.each(a.match(E)||[],function(a,c){b[c]=!0}),b}m.Callbacks=function(a){a="string"==typeof a?F[a]||G(a):m.extend({},a);var b,c,d,e,f,g,h=[],i=!a.once&&[],j=function(l){for(c=a.memory&&l,d=!0,f=g||0,g=0,e=h.length,b=!0;h&&e>f;f++)if(h[f].apply(l[0],l[1])===!1&&a.stopOnFalse){c=!1;break}b=!1,h&&(i?i.length&&j(i.shift()):c?h=[]:k.disable())},k={add:function(){if(h){var d=h.length;!function f(b){m.each(b,function(b,c){var d=m.type(c);"function"===d?a.unique&&k.has(c)||h.push(c):c&&c.length&&"string"!==d&&f(c)})}(arguments),b?e=h.length:c&&(g=d,j(c))}return this},remove:function(){return h&&m.each(arguments,function(a,c){var d;while((d=m.inArray(c,h,d))>-1)h.splice(d,1),b&&(e>=d&&e--,f>=d&&f--)}),this},has:function(a){return a?m.inArray(a,h)>-1:!(!h||!h.length)},empty:function(){return h=[],e=0,this},disable:function(){return h=i=c=void 0,this},disabled:function(){return!h},lock:function(){return i=void 0,c||k.disable(),this},locked:function(){return!i},fireWith:function(a,c){return!h||d&&!i||(c=c||[],c=[a,c.slice?c.slice():c],b?i.push(c):j(c)),this},fire:function(){return k.fireWith(this,arguments),this},fired:function(){return!!d}};return k},m.extend({Deferred:function(a){var b=[["resolve","done",m.Callbacks("once memory"),"resolved"],["reject","fail",m.Callbacks("once memory"),"rejected"],["notify","progress",m.Callbacks("memory")]],c="pending",d={state:function(){return c},always:function(){return e.done(arguments).fail(arguments),this},then:function(){var a=arguments;return m.Deferred(function(c){m.each(b,function(b,f){var g=m.isFunction(a[b])&&a[b];e[f[1]](function(){var a=g&&g.apply(this,arguments);a&&m.isFunction(a.promise)?a.promise().done(c.resolve).fail(c.reject).progress(c.notify):c[f[0]+"With"](this===d?c.promise():this,g?[a]:arguments)})}),a=null}).promise()},promise:function(a){return null!=a?m.extend(a,d):d}},e={};return d.pipe=d.then,m.each(b,function(a,f){var g=f[2],h=f[3];d[f[1]]=g.add,h&&g.add(function(){c=h},b[1^a][2].disable,b[2][2].lock),e[f[0]]=function(){return e[f[0]+"With"](this===e?d:this,arguments),this},e[f[0]+"With"]=g.fireWith}),d.promise(e),a&&a.call(e,e),e},when:function(a){var b=0,c=d.call(arguments),e=c.length,f=1!==e||a&&m.isFunction(a.promise)?e:0,g=1===f?a:m.Deferred(),h=function(a,b,c){return function(e){b[a]=this,c[a]=arguments.length>1?d.call(arguments):e,c===i?g.notifyWith(b,c):--f||g.resolveWith(b,c)}},i,j,k;if(e>1)for(i=new Array(e),j=new Array(e),k=new Array(e);e>b;b++)c[b]&&m.isFunction(c[b].promise)?c[b].promise().done(h(b,k,c)).fail(g.reject).progress(h(b,j,i)):--f;return f||g.resolveWith(k,c),g.promise()}});var H;m.fn.ready=function(a){return m.ready.promise().done(a),this},m.extend({isReady:!1,readyWait:1,holdReady:function(a){a?m.readyWait++:m.ready(!0)},ready:function(a){if(a===!0?!--m.readyWait:!m.isReady){if(!y.body)return setTimeout(m.ready);m.isReady=!0,a!==!0&&--m.readyWait>0||(H.resolveWith(y,[m]),m.fn.triggerHandler&&(m(y).triggerHandler("ready"),m(y).off("ready")))}}});function I(){y.addEventListener?(y.removeEventListener("DOMContentLoaded",J,!1),a.removeEventListener("load",J,!1)):(y.detachEvent("onreadystatechange",J),a.detachEvent("onload",J))}function J(){(y.addEventListener||"load"===event.type||"complete"===y.readyState)&&(I(),m.ready())}m.ready.promise=function(b){if(!H)if(H=m.Deferred(),"complete"===y.readyState)setTimeout(m.ready);else if(y.addEventListener)y.addEventListener("DOMContentLoaded",J,!1),a.addEventListener("load",J,!1);else{y.attachEvent("onreadystatechange",J),a.attachEvent("onload",J);var c=!1;try{c=null==a.frameElement&&y.documentElement}catch(d){}c&&c.doScroll&&!function e(){if(!m.isReady){try{c.doScroll("left")}catch(a){return setTimeout(e,50)}I(),m.ready()}}()}return H.promise(b)};var K="undefined",L;for(L in m(k))break;k.ownLast="0"!==L,k.inlineBlockNeedsLayout=!1,m(function(){var a,b,c,d;c=y.getElementsByTagName("body")[0],c&&c.style&&(b=y.createElement("div"),d=y.createElement("div"),d.style.cssText="position:absolute;border:0;width:0;height:0;top:0;left:-9999px",c.appendChild(d).appendChild(b),typeof b.style.zoom!==K&&(b.style.cssText="display:inline;margin:0;border:0;padding:1px;width:1px;zoom:1",k.inlineBlockNeedsLayout=a=3===b.offsetWidth,a&&(c.style.zoom=1)),c.removeChild(d))}),function(){var a=y.createElement("div");if(null==k.deleteExpando){k.deleteExpando=!0;try{delete a.test}catch(b){k.deleteExpando=!1}}a=null}(),m.acceptData=function(a){var b=m.noData[(a.nodeName+" ").toLowerCase()],c=+a.nodeType||1;return 1!==c&&9!==c?!1:!b||b!==!0&&a.getAttribute("classid")===b};var M=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,N=/([A-Z])/g;function O(a,b,c){if(void 0===c&&1===a.nodeType){var d="data-"+b.replace(N,"-$1").toLowerCase();if(c=a.getAttribute(d),"string"==typeof c){try{c="true"===c?!0:"false"===c?!1:"null"===c?null:+c+""===c?+c:M.test(c)?m.parseJSON(c):c}catch(e){}m.data(a,b,c)}else c=void 0}return c}function P(a){var b;for(b in a)if(("data"!==b||!m.isEmptyObject(a[b]))&&"toJSON"!==b)return!1;
@@ -362,674 +362,324 @@ summary {
 
 
 
-<h1 class="title toc-ignore">Basic Data Structure in R</h1>
+<h1 class="title toc-ignore">R Control Flow Tools</h1>
 <h4 class="author">Norman Lo</h4>
-<h4 class="date">5/21/2020</h4>
+<h4 class="date">6/16/2020</h4>
 
 </div>
 
 
-<div id="general-data-structure-in-r" class="section level2">
-<h2>General Data Structure in R</h2>
-<p>In the previous section, we have mentioned about the most common data structure in R, “vector”. However, in many cases, data needs to be stored in a higher dimension data structure. In R, several data structures are offered to satisfy our need to manage different data sources. In this section, we are going to cover the most popular data structures in R, which includes data.frame, matrix, list, and array.</p>
+<div id="r-control-flow-tools" class="section level2">
+<h2>R Control Flow Tools</h2>
+<p>In order to control the execution of the expression flow in R, we make use of the logical <strong>Control flow tools</strong> or control structures in R. R provides various standard control flow tools for testing different conditions and facilitates the flow of execution to be controled inside a function. We cover the following control flow tools in R in this lesson:</p>
+<ul>
+<li>if-else</li>
+<li>switch</li>
+<li>ifelse</li>
+<li>for loop</li>
+<li>while loop</li>
+<li>break and next</li>
+</ul>
+<div id="if-and-else-statements" class="section level4">
+<h4>4.1 - if and else statements</h4>
+<p>Like most of the programming languages, logical test is usually performed using the ‘<strong>if</strong>’ statement. The ‘if’ statement evaluates an expression(s) and check whether a condition is met, then returns a <strong>boolean</strong> condition, where one value (1) if TRUE and another value (0) if FALSE. The code(s) will be executed only if the condition is returned as TRUE; otherwise, it either jumps into the an ‘<strong>else</strong>’ condition test or ends the program flow. As mentioned in the previous sections, TRUE has the equal value of “1” and FALSE is equal to “0” in R.</p>
+<pre class="r"><code># Check the numeric value of TRUE
+as.numeric(TRUE)</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code># Check the numeric value of FALSE
+as.numeric(FALSE)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<p>When we apply the logical test, it returns either TRUE or FALSE. We can evaluate the following condtions and check the return values.</p>
+<pre class="r"><code># Check the condition 1 equals 1
+1 == 1</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Check the condition 1 is less than 1
+1 &lt; 1</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code># Check the condition 1 is less than or equal to 1
+1 &lt;= 1</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Check the condition 1 is greater than 1
+1 &gt; 1</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code># Check the condition 1 is greater than or equal to 1
+1 &gt;= 1</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Check the condition 1 is not equal to 1
+1 != 1</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>Now, let’s combine the condition test with the ‘if’ statement for contolling the executions.</p>
+<pre class="r"><code># Assign 1 to a variable
+toCheck &lt;- 1
+
+# Use the &#39;if&#39; statement that return &quot;hello&quot; if the variable equals 1
+if (toCheck == 1){
+  print(&quot;hello&quot;)
+}</code></pre>
+<pre><code>## [1] &quot;hello&quot;</code></pre>
+<pre class="r"><code># Use the &#39;if&#39; statement that returns &quot;hello&quot; if the variable equals 0
+if (toCheck == 0){
+  print(&quot;hello&quot;)
+}  # no return result in this case</code></pre>
+<p>‘if’ statement is similar to the R functions, the expression(s) is/are wrapped inside the curly brackets “{ }”. In the previous example, when the condition is met or equals TRUE, the expression is executed. In more general cases, there could be multiple expressions or nested control statements to be wrapped under a single condition test. When the condition test fails or equals FALSE, no action will be taken. If we want to assign different action(s) for failing the condition test, we could use the ‘else’ statement to define.</p>
+<pre class="r"><code># Create a function and assign to a variable
+check.bool &lt;- function(x){
+  # Create a condition test for this function
+  if (x == 1) {
+    print(&quot;hello&quot;)
+  }
+  # Create an alternative action
+  else {
+    print(&quot;goodbye&quot;)
+  }
+}</code></pre>
+<p>In this example, we added the ‘else’ statement to the function, so when the first condition is not met, the function returns “goodbye”. It’s important to pay attention to the indentation when writing the ‘if’ and ‘else’ statements. If they are not aligned in the more complex nested conditional tests, it would be easy to run into an error.</p>
+<pre class="r"><code># Using the function with different inputs
+check.bool(1)</code></pre>
+<pre><code>## [1] &quot;hello&quot;</code></pre>
+<pre class="r"><code>check.bool(0)</code></pre>
+<pre><code>## [1] &quot;goodbye&quot;</code></pre>
+<pre class="r"><code>check.bool(&quot;k&quot;)</code></pre>
+<pre><code>## [1] &quot;goodbye&quot;</code></pre>
+<pre class="r"><code>check.bool(TRUE)</code></pre>
+<pre><code>## [1] &quot;hello&quot;</code></pre>
+<p>If we need to add multiple testing conditions to the function, an ‘else if’ statement would help. Let’s build a function that test the condition if the variable equals 1, print “hello”, if the variable equals 0, print “goodbye”, for all other cases, print “confused”.</p>
+<pre class="r"><code># Create a function with multiple condition tests
+check.bool &lt;- function(x){
+  # First condition for x equals 1
+  if (x == 1) {
+    print(&quot;hello&quot;)
+  }
+  # Second condtion for x equals 0
+  else if (x == 0) {
+    print(&quot;goodbye&quot;)
+  }
+  # For all other cases
+  else {
+    print(&quot;confused&quot;)
+  }
+}
+
+# Check the function with different values
+check.bool(1)</code></pre>
+<pre><code>## [1] &quot;hello&quot;</code></pre>
+<pre class="r"><code>check.bool(0)</code></pre>
+<pre><code>## [1] &quot;goodbye&quot;</code></pre>
+<pre class="r"><code>check.bool(2)</code></pre>
+<pre><code>## [1] &quot;confused&quot;</code></pre>
+<pre class="r"><code>check.bool(&quot;k&quot;)</code></pre>
+<pre><code>## [1] &quot;confused&quot;</code></pre>
 </div>
-<div id="data.frame" class="section level2">
-<h2>2.1 - data.frame</h2>
-<p><strong>data.frame</strong> is a two dimensional data structure in R. It is a special case of a vector which has each component of equal length. Each component form the column and contents of hte component form the rows. Generally speaking, data.frame is similar to Excel spreadsheet.</p>
-<p>There are many data.frame methods in R, but the simplest way to create a data.frame is to use data.frame() function. Let’s create a simple data.frame with with columns x, y, and q, which came from three individual vectors.</p>
-<pre class="r"><code># Create 3 vectors x, y, and q
-x &lt;- 1:10
-y &lt;- -4:5
-q &lt;- c(&quot;Hockey&quot;, &quot;Football&quot;, &quot;Baseball&quot;, &quot;Curling&quot;, &quot;Rugby&quot;,
-       &quot;Lacrosse&quot;, &quot;Basketball&quot;, &quot;Tennis&quot;, &quot;Cricket&quot;, &quot;Soccer&quot;)
+<div id="switch" class="section level4">
+<h4>4.2 - Switch</h4>
+<p>When there are multiple conditions to test, the code will get complex and difficult to read using if-else statements. R provides an alternative function “switch()”, which can complete to the task efficiently. The switch() function in R tests an expression against element of a list. If the value evaluated from the expression matches item from the list, the corresponding value is returned.</p>
+<p>The first argument is the expression to be evaluated and follow by a list of named items and its values. If none of the items matches to the testing expression, it returns the predefined value. Here is an example to demonstrate:</p>
+<pre class="r"><code># Create a function using switch()
+use.switch &lt;- function(x){
+  # the expression x will be evaluated
+  switch(x,
+         # if &quot;a&quot;, return &quot;first&quot;
+         &quot;a&quot;=&quot;first&quot;,
+         # if &quot;b&quot;, return &quot;second&quot;
+         &quot;b&quot;=&quot;second&quot;,
+         # if &quot;c&quot;, return &quot;thrid&quot;
+         &quot;c&quot;=&quot;third&quot;,
+         # if &quot;z&quot;, return &quot;last&quot;
+         &quot;z&quot;=&quot;last&quot;,
+         # All other cases, return &quot;other&quot;
+         &quot;other&quot;)
+}
 
-# Create a data frame using data.frame()
-theDF &lt;- data.frame(x, y, q)
-theDF</code></pre>
-<pre><code>##     x  y          q
-## 1   1 -4     Hockey
-## 2   2 -3   Football
-## 3   3 -2   Baseball
-## 4   4 -1    Curling
-## 5   5  0      Rugby
-## 6   6  1   Lacrosse
-## 7   7  2 Basketball
-## 8   8  3     Tennis
-## 9   9  4    Cricket
-## 10 10  5     Soccer</code></pre>
-<pre class="r"><code># We can check the class of a data frame object using class()
-class(theDF)</code></pre>
-<pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<p>In this example, we created a data.frame with three individual vectors and the dimension of the data.frame is 10x3. As noticed, “theDF” in the example is a variable assigned with the data.frame. data.frame also allows us to define the column names, so it can be easily read. In the following example, we are assigning the name of the columns to each vector pass into the data.frame() function.</p>
-<pre class="r"><code># Assign column names to the data frame
-theDF &lt;- data.frame(First=x, Second=y, Sport=q)
-theDF</code></pre>
-<pre><code>##    First Second      Sport
-## 1      1     -4     Hockey
-## 2      2     -3   Football
-## 3      3     -2   Baseball
-## 4      4     -1    Curling
-## 5      5      0      Rugby
-## 6      6      1   Lacrosse
-## 7      7      2 Basketball
-## 8      8      3     Tennis
-## 9      9      4    Cricket
-## 10    10      5     Soccer</code></pre>
-<p>data.frame is a complex object with many different <strong>attributes</strong>. The most popular attributes are number of rows, number of columns, and dimenion of the data.frame. R offers the functions to check these attributes at ease.</p>
-<p>nrow() - check the number of rows of the data.frame ncol() - check the number of columns of the data.frame dim() - check the dimension (row x column) of hte data.frame.</p>
-<pre class="r"><code># Number of row
-nrow(theDF)</code></pre>
-<pre><code>## [1] 10</code></pre>
-<pre class="r"><code># Number of column
-ncol(theDF)</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code># Dimension of the data frame
-dim(theDF)</code></pre>
-<pre><code>## [1] 10  3</code></pre>
-<p>We can also check the name of each column using the names() function, which will return a vector of character. We can also check the name of a specific column by index and assign new names to the columns after it’s created. Here are some examples:</p>
-<pre class="r"><code># Check the column names of the data frame
-names(theDF)</code></pre>
-<pre><code>## [1] &quot;First&quot;  &quot;Second&quot; &quot;Sport&quot;</code></pre>
-<pre class="r"><code># Check only the third column name by indexing
-names(theDF)[3]</code></pre>
-<pre><code>## [1] &quot;Sport&quot;</code></pre>
-<pre class="r"><code># Check the row names (index)
-rownames(theDF)</code></pre>
-<pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot;</code></pre>
-<pre class="r"><code># Changing the row names
-rownames(theDF) &lt;- c(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;, &quot;five&quot;,
-                     &quot;six&quot;, &quot;seven&quot;, &quot;eight&quot;, &quot;nine&quot;, &quot;ten&quot;)
-rownames(theDF)</code></pre>
-<pre><code>##  [1] &quot;one&quot;   &quot;two&quot;   &quot;three&quot; &quot;four&quot;  &quot;five&quot;  &quot;six&quot;   &quot;seven&quot; &quot;eight&quot; &quot;nine&quot; 
-## [10] &quot;ten&quot;</code></pre>
-<pre class="r"><code># Reset row names back to index
-rownames(theDF) &lt;- NULL
-rownames(theDF)</code></pre>
-<pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot;</code></pre>
-<p>When a data.frame is so big or contains many rows, we may only want to print the first few rows to check the data within. In this case, we can use head() function to check the first 6 rows of the data. tail() function, on the other hand, returns the last 6 rows of the data in the data.frame.</p>
-<pre class="r"><code># View only the first six rows of the data frame (default)
-head(theDF)</code></pre>
-<pre><code>##   First Second    Sport
-## 1     1     -4   Hockey
-## 2     2     -3 Football
-## 3     3     -2 Baseball
-## 4     4     -1  Curling
-## 5     5      0    Rugby
-## 6     6      1 Lacrosse</code></pre>
-<pre class="r"><code># View the first seven rows of the data frame (n=7)
-head(theDF, n=7)</code></pre>
-<pre><code>##   First Second      Sport
-## 1     1     -4     Hockey
-## 2     2     -3   Football
-## 3     3     -2   Baseball
-## 4     4     -1    Curling
-## 5     5      0      Rugby
-## 6     6      1   Lacrosse
-## 7     7      2 Basketball</code></pre>
-<pre class="r"><code># View the last six rows of the data frame (default)
-tail(theDF)</code></pre>
-<pre><code>##    First Second      Sport
-## 5      5      0      Rugby
-## 6      6      1   Lacrosse
-## 7      7      2 Basketball
-## 8      8      3     Tennis
-## 9      9      4    Cricket
-## 10    10      5     Soccer</code></pre>
-<p>If you want to check the type of data structure, you can use the class() function.</p>
-<pre class="r"><code># Check the type of the data structure
-class(theDF)</code></pre>
-<pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<pre class="r"><code># Extracting a column of elements from the data frame using $
-theDF$Sport</code></pre>
-<pre><code>##  [1] Hockey     Football   Baseball   Curling    Rugby      Lacrosse  
-##  [7] Basketball Tennis     Cricket    Soccer    
-## 10 Levels: Baseball Basketball Cricket Curling Football Hockey ... Tennis</code></pre>
-<pre class="r"><code># Extracting an element from the third row and second column using [ ]
-theDF[3, 2]</code></pre>
-<pre><code>## [1] -2</code></pre>
-<pre class="r"><code># Extracting the elements from the third row and second to third columns 
-theDF[3, 2:3]  # Note that the return data frame has column names</code></pre>
-<pre><code>##   Second    Sport
-## 3     -2 Baseball</code></pre>
-<pre class="r"><code># Extracting the elements from the third and fifth rows and second column
-theDF[c(3,5), 2]  # Note that the return vector does not have name title</code></pre>
-<pre><code>## [1] -2  0</code></pre>
-<pre class="r"><code># Extracting the elments from the third and fifth rows and second to third columns
-theDF[c(3,5), 2:3]  # Note that the return data frame has column names</code></pre>
-<pre><code>##   Second    Sport
-## 3     -2 Baseball
-## 5      0    Rugby</code></pre>
-<pre class="r"><code># Extracting all the elements from the third column
-theDF[ , 3]  # Note the return vector does not have name title</code></pre>
-<pre><code>##  [1] Hockey     Football   Baseball   Curling    Rugby      Lacrosse  
-##  [7] Basketball Tennis     Cricket    Soccer    
-## 10 Levels: Baseball Basketball Cricket Curling Football Hockey ... Tennis</code></pre>
-<pre class="r"><code># Extracting all the elements from second to third columns
-theDF[ , 2:3]  # Note the return data frame has column names</code></pre>
-<pre><code>##    Second      Sport
-## 1      -4     Hockey
-## 2      -3   Football
-## 3      -2   Baseball
-## 4      -1    Curling
-## 5       0      Rugby
-## 6       1   Lacrosse
-## 7       2 Basketball
-## 8       3     Tennis
-## 9       4    Cricket
-## 10      5     Soccer</code></pre>
-<pre class="r"><code># Extracting all the elements in the second row
-theDF[2, ]  # Note the return data frame has column names</code></pre>
-<pre><code>##   First Second    Sport
-## 2     2     -3 Football</code></pre>
-<pre class="r"><code># Extracting all the elements in the second to fourth rows
-theDF[2:4, ]</code></pre>
-<pre><code>##   First Second    Sport
-## 2     2     -3 Football
-## 3     3     -2 Baseball
-## 4     4     -1  Curling</code></pre>
-<pre class="r"><code># Extracting all the elements in columns &quot;First&quot; and &quot;Sport&quot;
-theDF[ , c(&quot;First&quot;, &quot;Sport&quot;)]</code></pre>
-<pre><code>##    First      Sport
-## 1      1     Hockey
-## 2      2   Football
-## 3      3   Baseball
-## 4      4    Curling
-## 5      5      Rugby
-## 6      6   Lacrosse
-## 7      7 Basketball
-## 8      8     Tennis
-## 9      9    Cricket
-## 10    10     Soccer</code></pre>
-<p>It’s often confusing for people to use different methods to extract data from the data.frame. For instance, we can use df[, “column name”], df[“column name”], and df[[“column name”]] to extract a column of elements, but most people don’t realize the difference between these methods. Here are some examples to demontrate:</p>
-<pre class="r"><code># Extract only &quot;Sport&quot; column with df[ , &quot;column name&quot;] method
-theDF[ , &quot;Sport&quot;]</code></pre>
-<pre><code>##  [1] Hockey     Football   Baseball   Curling    Rugby      Lacrosse  
-##  [7] Basketball Tennis     Cricket    Soccer    
-## 10 Levels: Baseball Basketball Cricket Curling Football Hockey ... Tennis</code></pre>
-<pre class="r"><code># Check the class of the method
-class(theDF[ , &quot;Sport&quot;])  # return factor object, categorical data</code></pre>
-<pre><code>## [1] &quot;factor&quot;</code></pre>
-<pre class="r"><code># Extract only &quot;Sport&quot; column with df[&quot;column name&quot;] method
-theDF[&quot;Sport&quot;]</code></pre>
-<pre><code>##         Sport
-## 1      Hockey
-## 2    Football
-## 3    Baseball
-## 4     Curling
-## 5       Rugby
-## 6    Lacrosse
-## 7  Basketball
-## 8      Tennis
-## 9     Cricket
-## 10     Soccer</code></pre>
-<pre class="r"><code># Check the class of the method
-class(theDF[&quot;Sport&quot;])  # return data.frame object</code></pre>
-<pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<pre class="r"><code># Extract only &quot;Sport&quot; column with df[[&quot;column name&quot;]] method
-theDF[[&quot;Sport&quot;]]</code></pre>
-<pre><code>##  [1] Hockey     Football   Baseball   Curling    Rugby      Lacrosse  
-##  [7] Basketball Tennis     Cricket    Soccer    
-## 10 Levels: Baseball Basketball Cricket Curling Football Hockey ... Tennis</code></pre>
-<pre class="r"><code># Check the class of the method
-class(theDF[[&quot;Sport&quot;]])  # return factor object, categorical data</code></pre>
-<pre><code>## [1] &quot;factor&quot;</code></pre>
-<p>As observed in the previous examples, different methods return different R objects. In fact, when we are using the df[ , “column name”] method, we can pass in a third argument: drop=FALSE, so the return object is a data.frame.</p>
-<pre class="r"><code># Extract only &quot;Sport&quot; column applying drop=FALSE argument
-theDF[ , &quot;Sport&quot;, drop=FALSE]</code></pre>
-<pre><code>##         Sport
-## 1      Hockey
-## 2    Football
-## 3    Baseball
-## 4     Curling
-## 5       Rugby
-## 6    Lacrosse
-## 7  Basketball
-## 8      Tennis
-## 9     Cricket
-## 10     Soccer</code></pre>
-<pre class="r"><code># Check the class of the method
-class(theDF[ , &quot;Sport&quot;, drop=FALSE])  # return data.frame object</code></pre>
-<pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<pre class="r"><code># Extract only the thrid column applying drop=FALSE argument
-theDF[ , 3, drop=FALSE]</code></pre>
-<pre><code>##         Sport
-## 1      Hockey
-## 2    Football
-## 3    Baseball
-## 4     Curling
-## 5       Rugby
-## 6    Lacrosse
-## 7  Basketball
-## 8      Tennis
-## 9     Cricket
-## 10     Soccer</code></pre>
-<pre class="r"><code># Check the class of the method
-class(theDF[ , 3, drop=FALSE])  # return data.frame object</code></pre>
-<pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<p>Note: Many people first learning a statistical software like R do not pay attention to the type of data structure in different analysis packages. Indeed, it’s especially important and essential to understand what is required to pass into a function in R.</p>
-<p>As described in the previous section, factor is a special data structure that each unique category (string) in the data is defined into levels. R has an easy way to transform a factor into a data.frame format using model.matrix() function. The function returns columns of dummy variables with value 0 and 1 that indicates the level in the factor.</p>
-<pre class="r"><code># Create a new factor
-newFactor &lt;- factor(c(&quot;Pennsylvania&quot;, &quot;New York&quot;, &quot;New Jersey&quot;, &quot;New York&quot;,
-                      &quot;Tennessee&quot;, &quot;Massachusetts&quot;, &quot;Pennsylvania&quot;, &quot;New York&quot;))
+# Test the function with different values
+use.switch(&quot;a&quot;)</code></pre>
+<pre><code>## [1] &quot;first&quot;</code></pre>
+<pre class="r"><code>use.switch(&quot;b&quot;)</code></pre>
+<pre><code>## [1] &quot;second&quot;</code></pre>
+<pre class="r"><code>use.switch(&quot;c&quot;)</code></pre>
+<pre><code>## [1] &quot;third&quot;</code></pre>
+<pre class="r"><code>use.switch(&quot;d&quot;)</code></pre>
+<pre><code>## [1] &quot;other&quot;</code></pre>
+<pre class="r"><code>use.switch(&quot;e&quot;)</code></pre>
+<pre><code>## [1] &quot;other&quot;</code></pre>
+<pre class="r"><code>use.switch(&quot;z&quot;)</code></pre>
+<pre><code>## [1] &quot;last&quot;</code></pre>
+<p>If the evaluated expression is a numeric value, the item names (“a”, “b”, “c”, and “z”) will be ignored and the function returns the value of the item in the list based on the position index. If the numeric value is greater than the available index, the function returns NULL.</p>
+<pre class="r"><code># Test with numeric values
+use.switch(1)</code></pre>
+<pre><code>## [1] &quot;first&quot;</code></pre>
+<pre class="r"><code>use.switch(2)</code></pre>
+<pre><code>## [1] &quot;second&quot;</code></pre>
+<pre class="r"><code>use.switch(3)</code></pre>
+<pre><code>## [1] &quot;third&quot;</code></pre>
+<pre class="r"><code>use.switch(4)</code></pre>
+<pre><code>## [1] &quot;last&quot;</code></pre>
+<pre class="r"><code>use.switch(5)</code></pre>
+<pre><code>## [1] &quot;other&quot;</code></pre>
+<pre class="r"><code># Nothing return from this expression
+use.switch(6)
 
-# Create a data.frame based on the factor newFactor
-model.matrix(~newFactor - 1)</code></pre>
-<pre><code>##   newFactorMassachusetts newFactorNew Jersey newFactorNew York
-## 1                      0                   0                 0
-## 2                      0                   0                 1
-## 3                      0                   1                 0
-## 4                      0                   0                 1
-## 5                      0                   0                 0
-## 6                      1                   0                 0
-## 7                      0                   0                 0
-## 8                      0                   0                 1
-##   newFactorPennsylvania newFactorTennessee
-## 1                     1                  0
-## 2                     0                  0
-## 3                     0                  0
-## 4                     0                  0
-## 5                     0                  1
-## 6                     0                  0
-## 7                     1                  0
-## 8                     0                  0
-## attr(,&quot;assign&quot;)
-## [1] 1 1 1 1 1
-## attr(,&quot;contrasts&quot;)
-## attr(,&quot;contrasts&quot;)$newFactor
-## [1] &quot;contr.treatment&quot;</code></pre>
+# Check the return value from the expression
+is.null(use.switch(6))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 </div>
-<div id="list" class="section level2">
-<h2>2.2 - List</h2>
-<p>When we are trying to have a collection of different data objects, we can use the <strong>list</strong> data structure to collect them. List can store any type or length of data object, such as numeric, character, mixed of numeric and character data, data.frame, or a list.</p>
-<pre class="r"><code># Create a list with three elements
-list(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</code></pre>
-<pre><code>## [[1]]
-## [1] &quot;a&quot;
-## 
-## [[2]]
-## [1] &quot;b&quot;
-## 
-## [[3]]
-## [1] &quot;c&quot;</code></pre>
-<pre class="r"><code># Create a list with a single element, which is a vector
-list(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;))</code></pre>
-<pre><code>## [[1]]
-## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
-<pre class="r"><code># Create a list with two vector elements
-(list3 &lt;- list(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;), 3:7))</code></pre>
-<pre><code>## [[1]]
-## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;
-## 
-## [[2]]
-## [1] 3 4 5 6 7</code></pre>
-<pre class="r"><code># Create a list with two elements, a data.frame and vector
-list(theDF, 1:10)</code></pre>
-<pre><code>## [[1]]
-##    First Second      Sport
-## 1      1     -4     Hockey
-## 2      2     -3   Football
-## 3      3     -2   Baseball
-## 4      4     -1    Curling
-## 5      5      0      Rugby
-## 6      6      1   Lacrosse
-## 7      7      2 Basketball
-## 8      8      3     Tennis
-## 9      9      4    Cricket
-## 10    10      5     Soccer
-## 
-## [[2]]
-##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<pre class="r"><code># Create a list with three elements, a data.frame, vector, and list of two vectors
-list5 &lt;- list(theDF, 1:10, list3)
-list5</code></pre>
-<pre><code>## [[1]]
-##    First Second      Sport
-## 1      1     -4     Hockey
-## 2      2     -3   Football
-## 3      3     -2   Baseball
-## 4      4     -1    Curling
-## 5      5      0      Rugby
-## 6      6      1   Lacrosse
-## 7      7      2 Basketball
-## 8      8      3     Tennis
-## 9      9      4    Cricket
-## 10    10      5     Soccer
-## 
-## [[2]]
-##  [1]  1  2  3  4  5  6  7  8  9 10
-## 
-## [[3]]
-## [[3]][[1]]
-## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;
-## 
-## [[3]][[2]]
-## [1] 3 4 5 6 7</code></pre>
-<p>Note: As you may noticed in the above examples, when we are assigning a list of elements to list3 inside the parentheses, not only it create the list3 variable, but it also display the contents assigned to the variable.</p>
-<p>Similar to data.frame, we can also assign name to each of the element in a list and the names can be check by names() function.</p>
-<pre class="r"><code># Check the name of each element in list5
-names(list5)</code></pre>
-<pre><code>## NULL</code></pre>
-<pre class="r"><code># Assign name to each element in list5
-names(list5) &lt;- c(&quot;data.frame&quot;, &quot;vector&quot;, &quot;list&quot;)
+<div id="ifelse" class="section level4">
+<h4>4.3 - ifelse</h4>
+<p>The “if” statement in R is similar to the “if” statement in the traditional programming lanugage like C, C++, Java, etc. The ifelse() function in R is more like the application of if() function in Excel. The first argument specifies the conditional statement for testing, the second argument is the return value if the conditional test is TRUE, and the third argument is the return value if the conditional test is FALSE. Unlike the traditional “if” statement, one of the key advantage of ifelse() function in R is that it applies to vector and utilize vectorized operation. Here are few examples demonstrate the advantage of ifelse() function.</p>
+<pre class="r"><code># Test condition 1 == 1 with ifelse()
+ifelse(1 == 1, &quot;YES&quot;, &quot;NO&quot;)</code></pre>
+<pre><code>## [1] &quot;YES&quot;</code></pre>
+<pre class="r"><code># Test condition 1 == 0 with ifelse()
+ifelse(1 == 0, &quot;YES&quot;, &quot;NO&quot;)</code></pre>
+<pre><code>## [1] &quot;NO&quot;</code></pre>
+<pre class="r"><code># Test each elements in a vector equals 1 with ifelse()
+toTest &lt;- c(1, 1, 0, 1, 0, 1)
+ifelse(toTest == 1, &quot;YES&quot;, &quot;NO&quot;)</code></pre>
+<pre><code>## [1] &quot;YES&quot; &quot;YES&quot; &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;YES&quot;</code></pre>
+<pre class="r"><code># Modify the return values for the test
+ifelse(toTest == 1, toTest*3, toTest)</code></pre>
+<pre><code>## [1] 3 3 0 3 0 3</code></pre>
+<pre class="r"><code># Modify the return values for the test
+ifelse(toTest == 1, toTest*2, &quot;ZERO&quot;)</code></pre>
+<pre><code>## [1] &quot;2&quot;    &quot;2&quot;    &quot;ZERO&quot; &quot;2&quot;    &quot;ZERO&quot; &quot;2&quot;</code></pre>
+<pre class="r"><code># Add NA value to the vector
+toTest[2] &lt;- NA
 
-# Check the name of each element in list5 again
-names(list5)</code></pre>
-<pre><code>## [1] &quot;data.frame&quot; &quot;vector&quot;     &quot;list&quot;</code></pre>
-<pre class="r"><code># Print the list with the newly assigned names
-list5</code></pre>
-<pre><code>## $data.frame
-##    First Second      Sport
-## 1      1     -4     Hockey
-## 2      2     -3   Football
-## 3      3     -2   Baseball
-## 4      4     -1    Curling
-## 5      5      0      Rugby
-## 6      6      1   Lacrosse
-## 7      7      2 Basketball
-## 8      8      3     Tennis
-## 9      9      4    Cricket
-## 10    10      5     Soccer
-## 
-## $vector
-##  [1]  1  2  3  4  5  6  7  8  9 10
-## 
-## $list
-## $list[[1]]
-## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;
-## 
-## $list[[2]]
-## [1] 3 4 5 6 7</code></pre>
-<pre class="r"><code># We can also assign name to each element when creating the list
-list6 &lt;- list(TheDataFrame = theDF, TheVector = 1:10, TheList = list3)
+# Test each elements in the vector equals 1 with ifelse()
+ifelse(toTest == 1, &quot;YES&quot;, &quot;NO&quot;)</code></pre>
+<pre><code>## [1] &quot;YES&quot; NA    &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;YES&quot;</code></pre>
+<pre class="r"><code># Modify the return values for the test
+ifelse(toTest == 1, toTest*10, toTest)</code></pre>
+<pre><code>## [1] 10 NA  0 10  0 10</code></pre>
+<p>As you can see from these examples, ifelse() function can compute the conditional test for a vector without a loop operation. The return values can be flexibly customized. When an NA value is passed into the ifelse() function, it always returns an NA value.</p>
+<p>All of the examples so far is setup to test a single condition within a statement. In many cases, it may be helpful to test multiple condition within a statement. We can apply the two conditional operators, <strong>&amp;&amp;</strong> and <strong>||</strong>, for logical <strong>AND</strong> and <strong>OR</strong> statements, respectively.</p>
+<p>Many people confuse about the logical operators <strong>&amp;</strong> verus <strong>&amp;&amp;</strong> and <strong>|</strong> verus <strong>||</strong>. Single operator and double operator perform the same logical operation, but the single operator performs elementwise comparisons in much the same way as arithmetic operators, where the double operator only evaluate the first element of each vector. Understanding the difference between the two has an signifcant impact to the performance of the program. Double operartor is best applying on “if” statement or loop operation, whereas single operator is best used with ifelse() function.</p>
+<pre class="r"><code># Create two vectors a and b
+a &lt;- c(1, 1, 0, 1)
+b &lt;- c(2, 1, 0, 1)
 
-# Check the name of each element in list6
-names(list6)</code></pre>
-<pre><code>## [1] &quot;TheDataFrame&quot; &quot;TheVector&quot;    &quot;TheList&quot;</code></pre>
-<pre class="r"><code># Print the list with assigned names
-list6</code></pre>
-<pre><code>## $TheDataFrame
-##    First Second      Sport
-## 1      1     -4     Hockey
-## 2      2     -3   Football
-## 3      3     -2   Baseball
-## 4      4     -1    Curling
-## 5      5      0      Rugby
-## 6      6      1   Lacrosse
-## 7      7      2 Basketball
-## 8      8      3     Tennis
-## 9      9      4    Cricket
-## 10    10      5     Soccer
-## 
-## $TheVector
-##  [1]  1  2  3  4  5  6  7  8  9 10
-## 
-## $TheList
-## $TheList[[1]]
-## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;
-## 
-## $TheList[[2]]
-## [1] 3 4 5 6 7</code></pre>
-<pre class="r"><code># Create an empty list with 4 empty spaces
-(emptyList &lt;- vector(mode=&quot;list&quot;, length=4))</code></pre>
-<pre><code>## [[1]]
-## NULL
-## 
-## [[2]]
-## NULL
-## 
-## [[3]]
-## NULL
-## 
-## [[4]]
-## NULL</code></pre>
-<p>To extract a single element from a list, we can use double square brackets with the element’s index or name. For more complex extraction, such as list within a list or an element within a data.frame or vector, we can extract the data by <strong>nested indexing</strong>. Furthermore, we can also add new element to a list by assigning it to a new index or name.</p>
-<pre class="r"><code># Extracting an element from a list using index
-list5[[1]]</code></pre>
-<pre><code>##    First Second      Sport
-## 1      1     -4     Hockey
-## 2      2     -3   Football
-## 3      3     -2   Baseball
-## 4      4     -1    Curling
-## 5      5      0      Rugby
-## 6      6      1   Lacrosse
-## 7      7      2 Basketball
-## 8      8      3     Tennis
-## 9      9      4    Cricket
-## 10    10      5     Soccer</code></pre>
-<pre class="r"><code># Extracting an element form a list using the element&#39;s name
-list5[[&quot;data.frame&quot;]]</code></pre>
-<pre><code>##    First Second      Sport
-## 1      1     -4     Hockey
-## 2      2     -3   Football
-## 3      3     -2   Baseball
-## 4      4     -1    Curling
-## 5      5      0      Rugby
-## 6      6      1   Lacrosse
-## 7      7      2 Basketball
-## 8      8      3     Tennis
-## 9      9      4    Cricket
-## 10    10      5     Soccer</code></pre>
-<pre class="r"><code># Extracting an element from an element in a list using nested indexing
-list5[[1]]$Sport</code></pre>
-<pre><code>##  [1] Hockey     Football   Baseball   Curling    Rugby      Lacrosse  
-##  [7] Basketball Tennis     Cricket    Soccer    
-## 10 Levels: Baseball Basketball Cricket Curling Football Hockey ... Tennis</code></pre>
-<pre class="r"><code># Extracting an element from an element in a list using nested indexing
-list5[[1]][ , &quot;Second&quot;]</code></pre>
-<pre><code>##  [1] -4 -3 -2 -1  0  1  2  3  4  5</code></pre>
-<pre class="r"><code># Extracting an element from an element in a list using nested indexing and return a data.frame object
-list5[[1]][ , &quot;Second&quot;, drop=FALSE]</code></pre>
-<pre><code>##    Second
-## 1      -4
-## 2      -3
-## 3      -2
-## 4      -1
-## 5       0
-## 6       1
-## 7       2
-## 8       3
-## 9       4
-## 10      5</code></pre>
-<pre class="r"><code># Check the length of a list
-length(list5)</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code># Add the 4th element to a list without a name
-list5[[4]] &lt;- 2
-length(list5)</code></pre>
-<pre><code>## [1] 4</code></pre>
-<pre class="r"><code># Add the 5th element to a list with an assigned name
-list5[[5]] &lt;- 3:6
-length(list5)</code></pre>
-<pre><code>## [1] 5</code></pre>
-<pre class="r"><code># Check the name of each element in a list
-names(list5)</code></pre>
-<pre><code>## [1] &quot;data.frame&quot; &quot;vector&quot;     &quot;list&quot;       &quot;&quot;           &quot;&quot;</code></pre>
-<pre class="r"><code># Print all elements in a list
-list5</code></pre>
-<pre><code>## $data.frame
-##    First Second      Sport
-## 1      1     -4     Hockey
-## 2      2     -3   Football
-## 3      3     -2   Baseball
-## 4      4     -1    Curling
-## 5      5      0      Rugby
-## 6      6      1   Lacrosse
-## 7      7      2 Basketball
-## 8      8      3     Tennis
-## 9      9      4    Cricket
-## 10    10      5     Soccer
-## 
-## $vector
-##  [1]  1  2  3  4  5  6  7  8  9 10
-## 
-## $list
-## $list[[1]]
-## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;
-## 
-## $list[[2]]
-## [1] 3 4 5 6 7
-## 
-## 
-## [[4]]
+# Test each element in both vector equals 1 with single operator
+ifelse(a == 1 &amp; b == 1, &quot;YES&quot;, &quot;NO&quot;)</code></pre>
+<pre><code>## [1] &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;YES&quot;</code></pre>
+<pre class="r"><code># Test the first element in both vector equals 1 with double operator
+ifelse(a == 1 &amp;&amp; b == 1, &quot;YES&quot;, &quot;NO&quot;)</code></pre>
+<pre><code>## [1] &quot;NO&quot;</code></pre>
+</div>
+<div id="for-loop" class="section level4">
+<h4>4.4 - for loop</h4>
+<p>Like we mentioned in the previous sections, many of the R built-in functions utilize the vectorized operation to improve performance and computational power. However, there are some cases where the calculations need to be done by iterating a vector, list, or data.frame. Therefore, R also features the <strong>for</strong> and <strong>while</strong> loop statements for the control flow commands.</p>
+<p>The most common loop statement is a <strong>for</strong> loop. A for loop is used to iterate over a vector in R programming. A for loop include three arugments, which is similar to an English sentence. The first argument is a variable to be assigned a value from the vector. The middle argument is the key work “in”. The last argument is the vector to be iterated. After for loop statement, a body of statement(s) can be added within the curly brackets “{ }” for execution under the specific condition. Let’s take a quick look of this simple for loop example.</p>
+<pre class="r"><code># Create a for loop that loop through 1 to 10 and print each element from the vector
+for (i in 1:10){
+  print(i)
+}</code></pre>
+<pre><code>## [1] 1
 ## [1] 2
-## 
-## [[5]]
-## [1] 3 4 5 6</code></pre>
-<p>Note: In most cases, adding new element to a list is not going to create efficient problem. However, as a list expands, especially with data.frame or list, it would increase the computational complexity. Therefore, it’s suggested to set the length of the list at the beginning and fill it with the proper index.</p>
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10</code></pre>
+<pre class="r"><code># Print a vector 1 to 10 by vectorized operation
+print(1:10)</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>Note: vectorized operation can achieve the same task in this last example.</p>
+<pre class="r"><code># Create a vector of fruit names
+fruit &lt;- c(&quot;apple&quot;, &quot;banana&quot;, &quot;pomegranate&quot;)
+
+# Create a vector of NAs with length same as fruit
+fruitLength &lt;- rep(NA, length(fruit))
+fruitLength</code></pre>
+<pre><code>## [1] NA NA NA</code></pre>
+<pre class="r"><code># Assign names to each element in the fruitLength vector
+names(fruitLength) &lt;- fruit
+fruitLength</code></pre>
+<pre><code>##       apple      banana pomegranate 
+##          NA          NA          NA</code></pre>
+<pre class="r"><code># Create a for loop to assign the fruit names&#39; length to each fruit
+for (a in fruit){
+  fruitLength[a] &lt;- nchar(a)
+}
+
+# Print the results
+fruitLength</code></pre>
+<pre><code>##       apple      banana pomegranate 
+##           5           6          11</code></pre>
+<pre class="r"><code># Achieve the same task using vectorized operation
+# Apply nchar() function to fruit vector
+fruitLength2 &lt;- nchar(fruit)
+
+# Name the elements in fruitLength2 vector
+names(fruitLength2) &lt;- fruit
+
+# Print the result
+fruitLength2</code></pre>
+<pre><code>##       apple      banana pomegranate 
+##           5           6          11</code></pre>
+<pre class="r"><code># Check if the two results are identical
+identical(fruitLength, fruitLength2)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 </div>
-<div id="matrix" class="section level2">
-<h2>2.3 - Matrix</h2>
-<p><strong>Matrix</strong> is an important mathematical structure in statistical computation. It’s similar to data.frame, which represents a collection of numbers arranged in an order of rows and columns. The only different is that matrix requires all elements to be the same data type, which is usually numeric. Same as vector, matrix calculation is based on vectorized computation. The data.frame attributes, such as nrow(), ncol(), and dim(), also apply to matrix. Here are some examples to demonstrate:</p>
-<pre class="r"><code># Create a 5x2 matrix with elements 1 to 10
-A &lt;- matrix(1:10, nrow=5)
-A</code></pre>
-<pre><code>##      [,1] [,2]
-## [1,]    1    6
-## [2,]    2    7
-## [3,]    3    8
-## [4,]    4    9
-## [5,]    5   10</code></pre>
-<pre class="r"><code># Create a 5x2 matrix with elements 21 to 30
-B &lt;- matrix(21:30, nrow=5)
-B</code></pre>
-<pre><code>##      [,1] [,2]
-## [1,]   21   26
-## [2,]   22   27
-## [3,]   23   28
-## [4,]   24   29
-## [5,]   25   30</code></pre>
-<pre class="r"><code># Create a 2x10 matrix with elements 21 to 40
-C &lt;- matrix(21:40, nrow=2)
-C</code></pre>
-<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
-## [1,]   21   23   25   27   29   31   33   35   37    39
-## [2,]   22   24   26   28   30   32   34   36   38    40</code></pre>
-<pre class="r"><code># Check the row attribute of Matrix A
-nrow(A)</code></pre>
-<pre><code>## [1] 5</code></pre>
-<pre class="r"><code># Check the column attribute of Matrix A
-ncol(A)</code></pre>
-<pre><code>## [1] 2</code></pre>
-<pre class="r"><code># Check the dimension of Matrix A
-dim(A)</code></pre>
-<pre><code>## [1] 5 2</code></pre>
-<pre class="r"><code># Adding Matrix A and B (must be the same dimension)
-A + B</code></pre>
-<pre><code>##      [,1] [,2]
-## [1,]   22   32
-## [2,]   24   34
-## [3,]   26   36
-## [4,]   28   38
-## [5,]   30   40</code></pre>
-<pre class="r"><code># Multiplying Matrix A and B (not matrix multiplication)
-A * B</code></pre>
-<pre><code>##      [,1] [,2]
-## [1,]   21  156
-## [2,]   44  189
-## [3,]   69  224
-## [4,]   96  261
-## [5,]  125  300</code></pre>
-<pre class="r"><code># Check if the elements are the same in two matrices
-A == B</code></pre>
-<pre><code>##       [,1]  [,2]
-## [1,] FALSE FALSE
-## [2,] FALSE FALSE
-## [3,] FALSE FALSE
-## [4,] FALSE FALSE
-## [5,] FALSE FALSE</code></pre>
-<p><strong>Matrix Multiplication</strong> is often used in mathematical operations. The requirment for matrix multiplication is that the number of rows of the first matrix needs to match with the number of columns of the second matrix. To demonstrate, we transpose matrix B in the following example and multiple the two matrices.</p>
-<pre class="r"><code># Transpose Matrix B for matrix multiplication
-A %*% t(B)</code></pre>
-<pre><code>##      [,1] [,2] [,3] [,4] [,5]
-## [1,]  177  184  191  198  205
-## [2,]  224  233  242  251  260
-## [3,]  271  282  293  304  315
-## [4,]  318  331  344  357  370
-## [5,]  365  380  395  410  425</code></pre>
-<p>Similar to data.frame, matrix can also assign the names to the rows and columns.</p>
-<pre class="r"><code># Check column names of Matrix A
-colnames(A)</code></pre>
-<pre><code>## NULL</code></pre>
-<pre class="r"><code># Check row names of Matrix A
-rownames(A)</code></pre>
-<pre><code>## NULL</code></pre>
-<pre class="r"><code># Assign column and row names to Matrix A
-colnames(A) &lt;- c(&quot;Left&quot;, &quot;Right&quot;)
-rownames(A) &lt;- c(&quot;1st&quot;, &quot;2nd&quot;, &quot;3rd&quot;, &quot;4th&quot;, &quot;5th&quot;)
+<div id="while-loop" class="section level4">
+<h4>4.5 - while loop</h4>
+<p>In R programming, <strong>while</strong> loop is less used compare to the <strong>for</strong> loop. While loop in R is again similar to while loop in any other programming language, which repeat the specific block of code until the condition is no longer satisfied. First the condition is evaluated and only when it holds TRUE, while loop enters the body. Here is an example to demonstrate the use of while loop and iterate a variable until it reaches 5.</p>
+<pre class="r"><code># Assigne 1 to x
+x &lt;- 1
 
-# Check the assigned column and row names of Matrix A
-colnames(A)</code></pre>
-<pre><code>## [1] &quot;Left&quot;  &quot;Right&quot;</code></pre>
-<pre class="r"><code>rownames(A)</code></pre>
-<pre><code>## [1] &quot;1st&quot; &quot;2nd&quot; &quot;3rd&quot; &quot;4th&quot; &quot;5th&quot;</code></pre>
-<pre class="r"><code># Assign column and row names to Matrix B
-colnames(B) &lt;- c(&quot;First&quot;, &quot;Second&quot;)
-rownames(B) &lt;- c(&quot;One&quot;, &quot;Two&quot;, &quot;Three&quot;, &quot;Four&quot;, &quot;Five&quot;)
-
-# Check the assigned column and row names of Matrix B
-colnames(B)</code></pre>
-<pre><code>## [1] &quot;First&quot;  &quot;Second&quot;</code></pre>
-<pre class="r"><code>rownames(B)</code></pre>
-<pre><code>## [1] &quot;One&quot;   &quot;Two&quot;   &quot;Three&quot; &quot;Four&quot;  &quot;Five&quot;</code></pre>
-<pre class="r"><code># Assign column and row names to Matrix C
-colnames(C) &lt;- LETTERS[1:10]
-rownames(C) &lt;- c(&quot;Top&quot;, &quot;Bottom&quot;)
-
-# Check the assigned column and row names of Matrix C
-colnames(C)</code></pre>
-<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot;</code></pre>
-<pre class="r"><code>rownames(C)</code></pre>
-<pre><code>## [1] &quot;Top&quot;    &quot;Bottom&quot;</code></pre>
-<p>R has two special vectors called “letters” and “LETTERS”. They are used to create vector of lowercase letters and uppercase letters. In the previous example, LETTER[1:10] represents a vector of uppercase letters A~J.</p>
-<p>When we are tranposing a matrix with assigned row and column names, the names will be transposed to match with the data.</p>
-<pre class="r"><code># Transpose Matrix A
-t(A)</code></pre>
-<pre><code>##       1st 2nd 3rd 4th 5th
-## Left    1   2   3   4   5
-## Right   6   7   8   9  10</code></pre>
-<pre class="r"><code># Matrix multiplication for Matrix A and C
-A %*% C</code></pre>
-<pre><code>##       A   B   C   D   E   F   G   H   I   J
-## 1st 153 167 181 195 209 223 237 251 265 279
-## 2nd 196 214 232 250 268 286 304 322 340 358
-## 3rd 239 261 283 305 327 349 371 393 415 437
-## 4th 282 308 334 360 386 412 438 464 490 516
-## 5th 325 355 385 415 445 475 505 535 565 595</code></pre>
+# Create a while loop that continue to print x while it&#39;s less than or equal to 5.
+while (x &lt;= 5){
+  print(x)
+  # After printing x, a value of 1 is added to x
+  x &lt;- x + 1
+}</code></pre>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5</code></pre>
 </div>
-<div id="array" class="section level2">
-<h2>2.4 - Array</h2>
-<p><strong>Array</strong> is the R data object that can store data in more than two dimensions. Array can store only the same data type. An array is created using the array() function in R. Similar to a vector, we can use the square brackets to extract elements from an array. The first arugment refers to the row of each element, the second argument refers to the column of each element, and finally the thrid argument refers to the index of the element. Here is an example to demonstrate:</p>
-<pre class="r"><code># Create a array with 2 two dimensional vectors
-theArray &lt;- array(1:12, dim=c(2, 3, 2))
-theArray</code></pre>
-<pre><code>## , , 1
-## 
-##      [,1] [,2] [,3]
-## [1,]    1    3    5
-## [2,]    2    4    6
-## 
-## , , 2
-## 
-##      [,1] [,2] [,3]
-## [1,]    7    9   11
-## [2,]    8   10   12</code></pre>
-<pre class="r"><code># Extract the first row from each vector element by index
-theArray[1, , ]</code></pre>
-<pre><code>##      [,1] [,2]
-## [1,]    1    7
-## [2,]    3    9
-## [3,]    5   11</code></pre>
-<pre class="r"><code># Extract the first row from the first vector element by index
-theArray[1, , 1]</code></pre>
-<pre><code>## [1] 1 3 5</code></pre>
-<pre class="r"><code># Extract the first vector by index
-theArray[ , , 1]</code></pre>
-<pre><code>##      [,1] [,2] [,3]
-## [1,]    1    3    5
-## [2,]    2    4    6</code></pre>
-<div id="summary" class="section level3">
-<h3>Summary:</h3>
-<p>Most people do not realize the importance of the data type they are dealing with in their project. In fact, it could be frustrating when you are trying to debug some the errors with different statistical package in R. Most of the time, the errors are related to the type of data required in those packages. Therefore, it’s very important to learn all the different data structures in R before using different statistical packages.</p>
+<div id="break-and-next-statements" class="section level4">
+<h4>4.6 - break and next statements</h4>
+<p>Under certain condition, we may need to jump or skip an interation or even break or stop the loop. We can use the <strong>next</strong> or <strong>break</strong> statement to control the flow of the program. Here are two examples illustrate the use of the two statements.</p>
+<pre class="r"><code># Create a for loop with next statement
+for (i in 1:10) {
+  # If i equals to 3, it skip to the next iteration
+  if (i == 3){ 
+    next
+  }
+  # If i not equals to 3, print i
+  print(i)
+}</code></pre>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10</code></pre>
+<p>Note that the value 3 is not included in the return output because when i equals 3, it jumps into the <strong>next</strong> statement and jump to the next iteration.</p>
+<p>If we want to stop a loop once it hits certain condition test, we can use the <strong>break</strong> statement to force a stop of the interation.</p>
+<pre class="r"><code># Create a for loop with break statement
+for (i in 1:10){
+  # If i equals to 4, break the for loop
+  if (i == 4){
+    break
+  }
+  # if i not equals to 4, print i
+  print(i)
+}</code></pre>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3</code></pre>
+<p>In this example, we see the output break after the value 3 is printed because when the iteration hits 4, it gets into the break statement and the for loop is forced to stop.</p>
+</div>
+<div id="summary" class="section level4">
+<h4>Summary:</h4>
+<p>We only introduce the basic control flow tools in this section, but there are many tools are also available in R. “for” loop is great for iterating a vector of elements and the “while” loop is flexible to repeat the same task(s) until certain condition is met. Like we mentioned many times before, R offers many vectorized operators for different data operation and we should always utilize these tools before using the loop operation becasue of the advantage of efficiency and performance. Also, unlike other programming language, we should always try to avoid writing nested loops in R because of the performance issue.</p>
 </div>
 </div>
 

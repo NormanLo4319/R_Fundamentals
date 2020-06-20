@@ -1,5 +1,5 @@
 ---
-title: "Basic Data Structure in R"
+title: "Basic Data Objects in R"
 author: "Norman Lo"
 date: "5/21/2020"
 output: html_document
@@ -8,7 +8,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-## General Data Structure in R
+## General Data Objects in R
 
 In the previous section, we have mentioned about the most common data structure in R, "vector". However, in many cases, data needs to be stored in a higher dimension data structure. In R, several data structures are offered to satisfy our need to manage different data sources.  In this section, we are going to cover the most popular data structures in R, which includes data.frame, matrix, list, and array.
 
