@@ -1,5 +1,5 @@
 # R_Fundermentals
-In this repository, we explore the R fundamentals and learn how to program with R.  We use the Integrated Development Environment, IDEs, ["R Studio"](https://rstudio.com/) in this project. We include the installation instruction below for beginners to install the software.
+In this repository, we explore the R fundamentals and learn how to program with R.  We use the Integrated Development Environment, IDEs, ["R Studio"](https://rstudio.com/) in this project. We include the installation instruction for R and R studio below for beginners to install the software.
 
 ## Installing R and R studio
 R is an open-source software available for all commonly used operating system, including Windows, macOS, and Linus systems.  Note that RStudio is an R IDE that works with the version of R installed on your machine.  Therefore, we need to install R before installing RStudio to run the software.  To install R, you can find visit the [R-Project](https://www.r-project.org/) website and follow the instructions to install the software on your machine.  
