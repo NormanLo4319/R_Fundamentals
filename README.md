@@ -1,4 +1,4 @@
-# R_Fundamentals
+# R Fundamentals
 In this repository, we explore the R fundamentals and learn how to program with R.  We use the Integrated Development Environment, IDEs, ["R Studio"](https://rstudio.com/) in this project. We include the software installation instructions for R and R studio below for beginners.
 
 ## Installing R and R studio
